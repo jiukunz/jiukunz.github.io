@@ -356,6 +356,13 @@
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -531,6 +538,23 @@
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : 'NpqiQba0TkJmnTdFwbrNytcMRMgSwuuTesbpFyOgBHSaORjJOrqIV0lEA2MRyAKB',
+      shortname : 'jiukun',
+      url       : "http://jiukun.me/posts/16b9c708/",
+      identifier: "posts/16b9c708/",
+      title     : "浅谈软件项目规模估计（一）什么时候估？",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
 </body>
 </html>

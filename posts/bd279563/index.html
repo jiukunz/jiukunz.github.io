@@ -344,6 +344,13 @@
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -519,6 +526,23 @@
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : 'NpqiQba0TkJmnTdFwbrNytcMRMgSwuuTesbpFyOgBHSaORjJOrqIV0lEA2MRyAKB',
+      shortname : 'jiukun',
+      url       : "http://jiukun.me/posts/bd279563/",
+      identifier: "posts/bd279563/",
+      title     : "开发与设计中那些共同的隐喻",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
 </body>
 </html>

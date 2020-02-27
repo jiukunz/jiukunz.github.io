@@ -3,12 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 北十九藏
-subtitle: '不经审视的人生，不值得。'
-description: 'seeking something funny in the short life, dada'
+title: 张先生的讲学堂
+subtitle: 大丈夫当为天地立心，为生民立命，为往圣继绝学，为万世开太平。
+description: 张先生的个人博客
+
+
 keywords: program, psychology, history, philosophy, mind, agile, 
-author: jiukun
-language: en
+author: Mr.Z
+language: zh-CN
 timezone: ''
 
 # URL

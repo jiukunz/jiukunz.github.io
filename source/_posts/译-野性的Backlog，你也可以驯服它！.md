@@ -16,7 +16,7 @@ date: 2016-07-01 23:26:15
 
 ******
 
-![题图](http://upload-images.jianshu.io/upload_images/46418-dd305e401225a9ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![题图](http://q6d3pw4zw.bkt.clouddn.com/backlog_1.png)
 
 在一个功能团队中，如何管理 backlog 是一个很重要的事情，这可以帮助团队保持一个相对稳定的节奏和良好的交付质量。
 
@@ -44,7 +44,7 @@ date: 2016-07-01 23:26:15
  
 在工作坊的第一个练习中，团队将用户旅程（Uesr Journey）进行映射，来辨识出当用户与应用进行交互时，到底需要完成什么事情，然后我们把这些信息进行分组，作为产品的目标。
 
-![我们描绘的用户旅程](http://upload-images.jianshu.io/upload_images/46418-67c6d9cd9e061b28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![我们描绘的用户旅程](http://q6d3pw4zw.bkt.clouddn.com/backlog_2.png)
 
 基于我们从这个练习中学到的东西，很容易看到为完成每个目标的潜在影响，这帮助我们有根据的排列它们的优先级。
 
@@ -54,7 +54,7 @@ date: 2016-07-01 23:26:15
  
 我们把 backlog 中的故事挨个过了一遍，辨识出存在于矩阵中的会被影响的用户，并把故事和目标建立关联。
 
-![通过目标和用户进行故事分组](http://upload-images.jianshu.io/upload_images/46418-c9b5166212d5ce55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![通过目标和用户进行故事分组](http://q6d3pw4zw.bkt.clouddn.com/backlog_3.png)
 
 在完成了这个练习后，我们得到了一个对我们想要完成的事情的清晰的画面，这些事情为谁而做，以及为什么。我们可以把与最低优先级目标挂钩的这些故事去掉，因为这些目标并不是产品成功的关键因素。
  
@@ -70,7 +70,7 @@ date: 2016-07-01 23:26:15
  
 因此我们需要把剩下的故事分成3个等级：基本需求，可协商的需求和不确定的需求。
 
-![按照等级分组的用户故事](http://upload-images.jianshu.io/upload_images/46418-8a66ec0196f47ac9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![按照等级分组的用户故事](http://q6d3pw4zw.bkt.clouddn.com/backlog_4.png)
 
 在基本需求等级中，我们把已经被实现的这些功能归为一组，来确保工作流基本的机制已经被满足了。这些都是一个个足够小的实验，很快就可以用来验证我们距离目标到底有多近。
  

@@ -194,13 +194,6 @@
 
               <time title="创建时间：2017-06-28 23:08:07" itemprop="dateCreated datePublished" datetime="2017-06-28T23:08:07+08:00">2017-06-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-27 17:05:25" itemprop="dateModified" datetime="2020-02-27T17:05:25+08:00">2020-02-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -211,7 +204,21 @@
                 </span>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -224,9 +231,9 @@
       
           <p><img src="http://upload-images.jianshu.io/upload_images/46418-fb22526357554e1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="系统思考的先贤 - 孙武"></p>
 <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>种花家有本无人不知的古书，叫孙子兵法。话说其中有一句：“胜兵先胜而后求战，败兵先战而后求胜”。翻译成人话，意思是：打胜仗的军队，总是先获得胜利地位，获得取胜条件之后，才投入战斗。而打败仗的军队，总是冲上去就打，企图在战斗中捕捉机会侥幸获胜。中国历史上有一打的名将，如吴起、白起、戚继光，在历史上，享有百战百胜的荣耀，他们并非神人，只是极其精懂此道。</p>
-<p>战争是个极其复杂的系统，影响其结果的因素非常多，古人用系统化的思考方式，将其拆解成五个思考维度，和七个需要Review的问题，并起了个好似售前材料的标题 — ”五事七计“。五事七计，出于孙子开篇《计篇》，讲的是战前的庙算，就是是战前会议商讨：仗要不要打，要打的话怎么打。</p>
+<p>战争是个极其复杂的系统，影响其结果的因素非常多，古人用系统化的思考方式，将其拆解成五个思考维度，和七个需要Review的问题，并起了个好似售前材料的标题 — “五事七计”。五事七计，出于孙子开篇《计篇》，讲的是战前的庙算，就是是战前会议商讨：仗要不要打，要打的话怎么打。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/46418-41bdd136c8de5a28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="一个时髦词 - 五事七计"></p>
-<p>与此类比，软件开发的整个过程也可以看做一个复杂的系统，我们想要追求的也是每个软件项目的成功，故而，项目开始前的”庙算“也是少不了的。如果把项目开始前的规划拆解成一些要素，那么项目规模的估计一定是其中最重要的之一。本文就对“项目规模估计”本身进行一轮拆解，看看这里面有哪些需要关注的点。</p>
+<p>与此类比，软件开发的整个过程也可以看做一个复杂的系统，我们想要追求的也是每个软件项目的成功，故而，项目开始前的“庙算”也是少不了的。如果把项目开始前的规划拆解成一些要素，那么项目规模的估计一定是其中最重要的之一。本文就对“项目规模估计”本身进行一轮拆解，看看这里面有哪些需要关注的点。</p>
 <h1 id="第一个问题，在什么时候估？"><a href="#第一个问题，在什么时候估？" class="headerlink" title="第一个问题，在什么时候估？"></a>第一个问题，在什么时候估？</h1><p>在思沃家，我们认为一个软件项目，一般分为以下几个阶段</p>
 <ul>
 <li>Sales（销售阶段）</li>
@@ -238,7 +245,7 @@
 </ul>
 <p>一般来说，在我们详细的了解了项目的方方面面之后，我们才能对项目进行较为准确的估计，所以对项目整体范围的估计应该发生在【项目启动阶段】之后。但限于目前国内软件项目的合作模式，经常发生的情况是：我们在 Discovery 阶段之后，甚至是售前阶段，就需要完成了对项目范围的估计。然而，在这个阶段，项目的整体范围实际上有高度的不确定性，所以此时的估计的准确度是比较低的。根据笔者过往的经验，在实际的项目启动阶段进行完需求细化之后，需求规模的膨胀比例从 30%~300%不等，那么在Inception之后，往往需要重新调整交付范围、交付时间、人员配置等，对合作双方都存在着一定的风险。</p>
 <p>但是这种合作模式，虽然对我们合作双方都有一些风险，是并不容易被改变的。<br>究其原因，一方面源于我们与客户的合同模式 — 固定价格（Fixed Price），另一方面，也是其根源，是客户方自身的财务预算制度所决定的。</p>
-<h3 id="合同模式"><a href="#合同模式" class="headerlink" title="合同模式"></a>合同模式</h3><p>供应商跟客户合作的项目一般分为两种：固定金额（Fixed Price）和时间材料（或者固定人天，Time &amp; Material）。</p>
+<h2 id="合同模式"><a href="#合同模式" class="headerlink" title="合同模式"></a>合同模式</h2><p>供应商跟客户合作的项目一般分为两种：固定金额（Fixed Price）和时间材料（或者固定人天，Time &amp; Material）。</p>
 <p>在固定价格模式中，风险大部分由供应商承担。因此，需求越抽象、需求变更越频繁、需求范围越模糊，供应商的风险越高。为了降低风险，供应商势必要求客户在开发启动前就明确需求范围、提供详尽的需求描述、控制需求变更频度——这样的做法毫无疑问是与敏捷价值相冲突的。</p>
 <p>时间材料模式则将风险全部放在客户方，容易导致客户方对于供应商持有很高的不信任感，会加强对流程的管控（微管理），这也是不利于双方协作的。</p>
 <p>在2013年11月7日召开的Agile Singapore大会上，来自挪威PROMIS公司的Trond Åsheim展示了一种适合敏捷开发的合同模式：目标价格（Target Price）。在目标价格的基础上，客户和供应商以预先商定的比率（一般而言50：50）共同承受收益或亏损。</p>
@@ -251,7 +258,7 @@
 <li>供求双方均不需在投标阶段花费大量时间和资源制作规格说明书、详细设计和计划（无论是否敏捷开发，这些东西往往在开发过程中很快就失去其作用，反而持续束缚团队开发出真正有用的产品）。</li>
 </ul>
 <p>随着敏捷交付的普及， 目标价格的合同模式，或者说这种合同模式所代表的方向，必然是企业CIO或者敏捷交付供应商所要关注和推动的。</p>
-<h3 id="预算模式"><a href="#预算模式" class="headerlink" title="预算模式"></a>预算模式</h3><p>为什么说财务预算制度会影响我们跟客户的合作模式呢？</p>
+<h2 id="预算模式"><a href="#预算模式" class="headerlink" title="预算模式"></a>预算模式</h2><p>为什么说财务预算制度会影响我们跟客户的合作模式呢？</p>
 <p>传统上讲，企业每年的财务计划，是在年度、半年度、季度等周期性的财务会议中决定的，包含了对各项成本、支出的预测，这其中也包含了软件项目的预算。也就是说，在项目启动之前很长一段时间，项目预算就已经定了，项目方向、范围也会大致确定。</p>
 <p>但是，软件项目由于其复杂性，预测是极易出错的（实际上世界上任何的复杂事件，都是很难预测的）。而且，预测人员当场的自信（或者说是直觉），也并不意味着预测的准确。</p>
 <p>宾夕法尼亚大学的心理学家Philip Tetlock，收集了超过8万条政治和经济学专家对于未来的预测，得出的结果是：这些预测甚至比运用正态分布曲线得出的预测结果还要糟糕。但当被证明预测出错的时候，鲜有人承认自己的预测是错的。大部分专家开始找借口或理由，来解释为什么他们认为自己实际上是对的，只不过时机出了问题。但他们不会提供任何推论，来说明什么类型的时机是正确的。</p>
@@ -262,8 +269,8 @@
 <li>现在再想象一下：某人申请了一笔特定的预算，但随后市场发生了变化，从而导致他需要两倍的资金。但由于他没有预先申请，就无法根据市场需求做出应对。公司的成功则再次由于原始的预算而受损。</li>
 </ul>
 <p>针对上述的情景和问题，目前其中的一个解决方案是超越预算（Beyond Budgeting），来实现更灵活的财务预算方案。例如，按年度沟通预算被视作不灵活的做法，推荐的建议是使用诸如<strong>滚动预算</strong>这样的方式，这意味着每个月都要核查该把钱花在何处才最有利。滚动预算的另一个备选方案，是基于事件制定预算，这样在任何出现变更的时候，预算都将会被重新考虑。</p>
-<p>在ThoughtWorks Live China 2016 邀请到了挪威国家石油公司Statoil副总裁 <em>Bjarte Bogsnes</em>，分享<a href="https://www.thoughtworks.com/talks/beyond-budgeting" target="_blank" rel="noopener">《超越预算——给新一代企业业务和管理者的敏捷模式》</a>，有兴趣的同学可以从这开始，了解更多的内容，在这里就不展开了。</p>
-<h3 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h3><ol>
+<p>在ThoughtWorks Live China 2016 邀请到了挪威国家石油公司Statoil副总裁 <em>Bjarte Bogsnes</em>，分享<a href="https://www.thoughtworks.com/talks/beyond-budgeting" target="_blank" rel="noopener">《超越预算——给新一代企业业务和管理者的敏捷模式》</a>，有兴趣的同学可以从这开始，了解更多的内容。</p>
+<h2 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h2><ol>
 <li>《敏捷估计与规划》</li>
 <li><a href="http://www.infoq.com/cn/news/2013/11/agile-target-price" target="_blank" rel="noopener">适合敏捷开发的合同模式：目标价格，风险均摊</a></li>
 <li><a href="https://www.dataforeningen.no/the-norwegian-computer-societys-contract-standards.4599105-146042.html" target="_blank" rel="noopener">The Norwegian Computer Society’s contract standards</a></li>
@@ -366,7 +373,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -399,6 +406,16 @@
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Mr.Z</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">3k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>

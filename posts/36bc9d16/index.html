@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari_pinned_tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jiukun.me","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="原作者：Martin Fowler原文链接：PurposeOfEstimation翻译：Mr.Z   我第一次接触敏捷软件开发，是在极限编程开始的时候与 Kent Beck 一起。那个项目，他们做计划的方式给我留下了深刻的印象。跟我之前的经历相比，他们采用了更轻量但有效的估计方法。从那时起到现在，已经过了不止十年。在资深的敏捷践行者中间，一直存在一个争论：估计是不是值得做，或者这是不是一个有害的事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[译] 敏捷软件开发 - 项目估计的意义">
+<meta property="og:url" content="http://jiukun.me/posts/36bc9d16/index.html">
+<meta property="og:site_name" content="张先生的讲学堂">
+<meta property="og:description" content="原作者：Martin Fowler原文链接：PurposeOfEstimation翻译：Mr.Z   我第一次接触敏捷软件开发，是在极限编程开始的时候与 Kent Beck 一起。那个项目，他们做计划的方式给我留下了深刻的印象。跟我之前的经历相比，他们采用了更轻量但有效的估计方法。从那时起到现在，已经过了不止十年。在资深的敏捷践行者中间，一直存在一个争论：估计是不是值得做，或者这是不是一个有害的事">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/46418-1f59b9d21087f337.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2017-07-03T09:10:58.000Z">
+<meta property="article:modified_time" content="2020-02-27T12:48:43.214Z">
+<meta property="article:author" content="Mr.Z">
+<meta property="article:tag" content="敏捷">
+<meta property="article:tag" content="估计">
+<meta property="article:tag" content="译文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/46418-1f59b9d21087f337.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+<link rel="canonical" href="http://jiukun.me/posts/36bc9d16/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>[译] 敏捷软件开发 - 项目估计的意义 | 张先生的讲学堂</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张先生的讲学堂</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">大丈夫当为天地立心，为生民立命，为往圣继绝学，为万世开太平。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jiukun.me/posts/36bc9d16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/comic_avartar.jpeg">
+      <meta itemprop="name" content="Mr.Z">
+      <meta itemprop="description" content="张先生的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张先生的讲学堂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [译] 敏捷软件开发 - 项目估计的意义
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-03 17:10:58" itemprop="dateCreated datePublished" datetime="2017-07-03T17:10:58+08:00">2017-07-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%8F%E6%8D%B7/" itemprop="url" rel="index"><span itemprop="name">敏捷</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>原作者：<a href="https://martinfowler.com/" target="_blank" rel="noopener">Martin Fowler</a><br>原文链接：<a href="https://martinfowler.com/bliki/PurposeOfEstimation.html" target="_blank" rel="noopener">PurposeOfEstimation</a><br>翻译：Mr.Z</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/46418-1f59b9d21087f337.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>我第一次接触敏捷软件开发，是在极限编程开始的时候与 Kent Beck 一起。那个项目，他们做计划的方式给我留下了深刻的印象。跟我之前的经历相比，他们采用了更轻量但有效的估计方法。从那时起到现在，已经过了不止十年。在资深的敏捷践行者中间，一直存在一个争论：估计是不是值得做，或者这是不是一个有害的事情。要想回答这个问题，我们一定要先看下估计的意义到底是什么。</p>
+<a id="more"></a>
+
+<p>经常会有下面这些场景发生：</p>
+<ul>
+<li>开发被要求对即将到来的活动进行估计。人们总是乐观的，所以估计值往往偏低，即使是在没有施加压力的情况下（岁经常会有一些隐性的压力）</li>
+<li>这些任务和估计会转变为发布计划，并使用燃尽图进行追踪</li>
+<li>在计划里会用时间追踪工作量进度。当工作在预定时间没完成的时候，谁都会感觉不舒服。为了加快节奏来赶上估计，开发会被告知通过牺牲质量来完成预定工作，不过这只会让事情变得更糟。</li>
+</ul>
+<p>狭义上讲，把工作量转换成估计，在最好的情况下，也是一种浪费。因为“估计是干净衬衣上的猜测”（PS：没看懂老马在说什么。。）。大部分情况下，估计会以严重的副作用告终，因为他们会鼓励 FeatureDevotion 这么一种令人难受的状况 —- 人们开始关注于勾掉那些完成的功能，而不是追踪项目真正的价值产出。</p>
+<p>估计还会设置一种期望。因为估计值往往偏低，所以这事实上设置了一种不切实际的期望。对某个功能来说，花更多的时间来做，或者在预定的时间交付了少的功能，都被视为一种损失。因为对损失的恐惧，这些损失会有一个放大效应。</p>
+<p>面对类似这样的情况，很容易看到人们会把他们的怒气撒到估计身上。这会导致一种观念的增强：任何沉溺于估计的人都不是一个真正的敏捷践行者。敏捷的批评者会说：敏捷开发就是开发人员在做一些模棱两可的东西，并承诺能完成，并且当完成的时候，保证你一定会喜欢。</p>
+<p>我不会说估计是一个生而邪恶的实践。如果有人问我估计是不是一件坏东西，我的回答是标准的咨询师套路 – it depends。任何时候，当有人回答“it depends”的时候，接下来的问题就是“取决于什么(upon what)”。想要回答这个，我们必须要问，为什么我们要做估计 – 就像我常说的“如果这值得做好，那么在地球上你为什么要做它，就值得问一下”。</p>
+<p>对我来说，当估计可以帮你做一个重要决定的时候，它是有价值的。</p>
+<p>关于估计影响决策的第一个例子，是关于资源的分配。组织拥有基本固定数量的钱和人，经常有太多值得做的事情。因此人们面临着这样的抉择：我要做A还是B？面对这样的决定时，经常需要知道每件事情都涉及多少工作量（成本）。关于要做什么，如果想要做一个合理的决策，那么你需要对这两件事情的成本和收益都有些感觉。</p>
+<p>另一个例子是协同互助。蓝队想要在他们的网站上发布一些新特性，但是直到绿队构建一个新的服务提供了关键数据之后才能做。如果绿队估计他们会在2个月内做完，蓝队估计会花一个月来构建新特性，那么蓝队就知道没必要今天就开始。他们可以花至少一个月的时间工作在其它特性上，以尽早发布。</p>
+<p>因此，当你考虑是不是需要一个估计的时候，你应该搞清楚这个估计会影响什么决策。如果你发现没有，或者这个决定并不重要，那么这是个信号 — 估计是浪费的。当你确实有个决策与估计相关，那么估计可以给这个决定提供一些上下文，不过还是需要说明估计所需要的精确程度，以避免不必要的浪费。</p>
+<p>还要明白的一点是，这个决策可能可以用估计之外的行动来决定。可能任务A并不比B重要，你不需要把你全部的能量放到估计上，来率先把这件事完成。可能对蓝队成员来说，还可以跟绿队一块工作，来让服务构建的更快一些。</p>
+<p>同样，对计划的追踪也应该由它如何影响决策来驱动。在这里我经常会说，计划要作为估计改变的基线而存在。如果我们想要增加一个新特性，我们如何把它合适地放到<a href="https://martinfowler.com/bliki/FivePoundBag.html" target="_blank" rel="noopener">五磅的袋子</a>里？估计可以帮助我们理解这些权衡，以此决定对变化如何反应。在更大的尺度上，重估一整个发布可以帮我们理解，项目作为一个整体，我们的工作是否还是最优地分配在项目上。一些年前，我们有一个长达一年的项目，在做了两个月后进行了一次重估，项目被取消了。我们将此视之为成功，因为重估表明这个项目将会花费比我们初期预计的长得多的时间。更早的结束，可以让客户把资源移到更佳的目标上。</p>
+<p>但是记住，在追踪项目计划中，估计的保质期有限。我还记得有一个粗放的项目经理说过，计划和估计就像生菜叶子一样，一两天还挺新鲜，一个星期后就皱巴巴了，如果过了一两个月，就完全认不出来了。</p>
+<p>很多团队发现估计可以提供一个有效的推动力，让团队成员彼此沟通。估计会议可以让大家对即将要做的故事卡有更好的理解，包括未来的架构方向，以及代码库的设计问题。在这种前提下，任何输出的估计值变得不那么重要。这样的交流有很多种方式发生，但是如果这种讨论没有发生的话，估计的研讨可以被引入。相反，如果你在考虑停止估计的实践，你需要确保在估计中的有效沟通，可以在其它地方继续发生。</p>
+<p>去参加任何敏捷相关的会议，你都会听到在没有估计的情况下团队有效工作的事情。很多情况下这都行得通，是因为他们，以及他们的客户，理解进行估计并不会影响重要的决定。其中有一个例子，是一个小团队与业务紧密工作在一起，如果更大范围上，业务乐于安排一些人到业务单元上，那么工作可以贯彻业务的优先级；这会帮助团队把工作分解到更小的单元。团队级别的敏捷流畅度模型，在这里就扮演者重要的角色。当团队进度与估计发生冲突的时候，他们可以有效的调整，然后达到目标。</p>
+<p>估计既不好，也不坏。如果你可以在没有估计的情况下有效工作，那么继续下去。如果你认为你需要一些估计，那么确保你理解它们在决策制定时扮演的角色。如果它们会有重大影响，那么就尽量把估计做到最好。在此之外，要谨防那些总是告诉你他们需要估计或者完全不需要估计的人。任何关于是否进行估计的争辩，总应该指向这样的敏捷原则 – 在特定的情景下，要采用哪些正确的技术，应该由你来决定。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Mr.Z 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Mr.Z 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr.Z
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jiukun.me/posts/36bc9d16/" title="[译] 敏捷软件开发 - 项目估计的意义">http://jiukun.me/posts/36bc9d16/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag"><i class="fa fa-tag"></i> 敏捷</a>
+              <a href="/tags/%E4%BC%B0%E8%AE%A1/" rel="tag"><i class="fa fa-tag"></i> 估计</a>
+              <a href="/tags/%E8%AF%91%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 译文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2fc392b3/" rel="prev" title="浅谈软件项目规模估计（二）估什么？">
+      <i class="fa fa-chevron-left"></i> 浅谈软件项目规模估计（二）估什么？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/b5623c89/" rel="next" title="浅谈软件项目规模估计（三）怎么估？">
+      浅谈软件项目规模估计（三）怎么估？ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mr.Z"
+      src="/images/comic_avartar.jpeg">
+  <p class="site-author-name" itemprop="name">Mr.Z</p>
+  <div class="site-description" itemprop="description">张先生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Z</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">34k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">31 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

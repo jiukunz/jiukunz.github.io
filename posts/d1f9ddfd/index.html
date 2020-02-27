@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari_pinned_tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jiukun.me","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="原作者： Alexandre Klaser原文链接： Backlog Gone Wild? You Can Still Tame It翻译：Mr.Z   在一个功能团队中，如何管理 backlog 是一个很重要的事情，这可以帮助团队保持一个相对稳定的节奏和良好的交付质量。 但是，有时你意识到你的 backlog 仅仅变成了一团乱麻的用户故事板。亡羊补牢为时未晚，让我们一起看一下下面这几种方法，让">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[译] 野性的Backlog，你也可以驯服它！">
+<meta property="og:url" content="http://jiukun.me/posts/d1f9ddfd/index.html">
+<meta property="og:site_name" content="张先生的讲学堂">
+<meta property="og:description" content="原作者： Alexandre Klaser原文链接： Backlog Gone Wild? You Can Still Tame It翻译：Mr.Z   在一个功能团队中，如何管理 backlog 是一个很重要的事情，这可以帮助团队保持一个相对稳定的节奏和良好的交付质量。 但是，有时你意识到你的 backlog 仅仅变成了一团乱麻的用户故事板。亡羊补牢为时未晚，让我们一起看一下下面这几种方法，让">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/46418-dd305e401225a9ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/46418-67c6d9cd9e061b28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/46418-c9b5166212d5ce55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/46418-8a66ec0196f47ac9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2016-07-01T15:26:15.000Z">
+<meta property="article:modified_time" content="2020-02-27T12:48:55.742Z">
+<meta property="article:author" content="Mr.Z">
+<meta property="article:tag" content="敏捷">
+<meta property="article:tag" content="需求分析">
+<meta property="article:tag" content="译文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/46418-dd305e401225a9ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+<link rel="canonical" href="http://jiukun.me/posts/d1f9ddfd/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>[译] 野性的Backlog，你也可以驯服它！ | 张先生的讲学堂</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张先生的讲学堂</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">大丈夫当为天地立心，为生民立命，为往圣继绝学，为万世开太平。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jiukun.me/posts/d1f9ddfd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/comic_avartar.jpeg">
+      <meta itemprop="name" content="Mr.Z">
+      <meta itemprop="description" content="张先生的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张先生的讲学堂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [译] 野性的Backlog，你也可以驯服它！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-01 23:26:15" itemprop="dateCreated datePublished" datetime="2016-07-01T23:26:15+08:00">2016-07-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%8F%E6%8D%B7/" itemprop="url" rel="index"><span itemprop="name">敏捷</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>原作者： Alexandre Klaser<br>原文链接： <a href="https://www.thoughtworks.com/insights/blog/backlog-gone-wild-you-can-still-tame-it" target="_blank" rel="noopener">Backlog Gone Wild? You Can Still Tame It</a><br>翻译：Mr.Z</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/46418-dd305e401225a9ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="题图"></p>
+<p>在一个功能团队中，如何管理 backlog 是一个很重要的事情，这可以帮助团队保持一个相对稳定的节奏和良好的交付质量。</p>
+<p>但是，有时你意识到你的 backlog 仅仅变成了一团乱麻的用户故事板。亡羊补牢为时未晚，让我们一起看一下下面这几种方法，让 backlog 重新步入正轨。</p>
+<a id="more"></a>
+
+<h1 id="跟着价值走"><a href="#跟着价值走" class="headerlink" title="跟着价值走"></a>跟着价值走</h1><p>就如 Deep Throat 在电影《总统班底》中说的：『一切朝钱看』。在软件开发中，我们有一个类似的建议：一定要关注在可以给产品提供商业价值的事情上。</p>
+<p>因此，如果有些可以给产品提供价值的点，让我们把它抓住，写成用户故事，放到 backlog 里以后做，如何？好吧，其实不用这么快！</p>
+<p>在一维 backlog 中的用户故事，我们都认为它们自己就能独立增长产品的价值，这是 scope 悄悄扩张的一个主要原因，这也是为什么 INVEST 原则从长期会走歪路，并最终导致失败的原因。在你 backlog 中包含进来的任何东西都必须与一个清晰的（并且可计量的）目标相挂钩。</p>
+<h1 id="组织-Backlog"><a href="#组织-Backlog" class="headerlink" title="组织 Backlog"></a>组织 Backlog</h1><p>在一个最近的项目中，我们刚开始只是通过电梯演讲（Elevator Pitch）和史诗（epic）级别的用户故事，来产生了一个高层次的项目目标。随着项目的推进，团队忘记了 backlog 中那些用户故事到底为了什么。史诗故事只是列出了未来要做的事情，而不是一个计划，要让我们按照它的方向前进。</p>
+<p>在那个项目中，做迭代计划变得更加困难，我们很快意识到已经有太多的用户故事要做了，而没有足够的迭代时间来做。</p>
+<p>为了解决这些问题，我们计划了一个 backlog 减肥工作坊，分为以下四个简单的步骤：</p>
+<h2 id="1-辨识目标并排优先级"><a href="#1-辨识目标并排优先级" class="headerlink" title="1. 辨识目标并排优先级"></a>1. 辨识目标并排优先级</h2><p>在工作坊的第一个练习中，团队将用户旅程（Uesr Journey）进行映射，来辨识出当用户与应用进行交互时，到底需要完成什么事情，然后我们把这些信息进行分组，作为产品的目标。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/46418-67c6d9cd9e061b28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="我们描绘的用户旅程"></p>
+<p>基于我们从这个练习中学到的东西，很容易看到为完成每个目标的潜在影响，这帮助我们有根据的排列它们的优先级。</p>
+<h2 id="2-通过目标和用户来进行故事分组"><a href="#2-通过目标和用户来进行故事分组" class="headerlink" title="2. 通过目标和用户来进行故事分组**"></a>2. 通过目标和用户来进行故事分组**</h2><p>接下来我们创建一个矩阵，我们把目标按优先级排序，依次放到 x 轴上，把用户按照被产品影响的大小，依次放到 y 轴上。</p>
+<p>我们把 backlog 中的故事挨个过了一遍，辨识出存在于矩阵中的会被影响的用户，并把故事和目标建立关联。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/46418-c9b5166212d5ce55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="通过目标和用户进行故事分组"></p>
+<p>在完成了这个练习后，我们得到了一个对我们想要完成的事情的清晰的画面，这些事情为谁而做，以及为什么。我们可以把与最低优先级目标挂钩的这些故事去掉，因为这些目标并不是产品成功的关键因素。</p>
+<p>我们必须要决策的第二个点是，我们怎样影响我们的用户。我们可以把工作分成垂直的块（试着一次去满足多个用户的同一个目标），或者水平的块（试着去给某个用户他/她需要的多个功能，来满足跟他有关的多个目标）。</p>
+<p>因为这个产品是跟工作流有关的，故而使用一次仅关注一个目标，对与这个目标相关的全部用户，提供他们完成部分工作所需的全部功能，这种方式比较好。</p>
+<p><em>这些故事使用『作为…我想要…以至于』 的形式，但是大量集中在『以至于』的部分目标都太细粒度了，以至于我们花了一些工夫，才把它们跟我们在矩阵中使用的高层次的目标关联起来。在这次工作坊之后，我们再创建故事就开始使用『为了…作为…我想要』的形式了，因为这样更容易从高层次来认识用户故事。</em></p>
+<h2 id="3-挑重要的做"><a href="#3-挑重要的做" class="headerlink" title="3. 挑重要的做"></a>3. 挑重要的做</h2><p>但这还不够。跟我们离场时所能做完的相比，Backlog 里的故事还是太多了。</p>
+<p>因此我们需要把剩下的故事分成3个等级：基本需求，可协商的需求和不确定的需求。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/46418-8a66ec0196f47ac9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="按照等级分组的用户故事"></p>
+<p>在基本需求等级中，我们把已经被实现的这些功能归为一组，来确保工作流基本的机制已经被满足了。这些都是一个个足够小的实验，很快就可以用来验证我们距离目标到底有多近。</p>
+<p>在不确定的需求等级中，我们把那些在某种意义上明显属于『nice-to-have』的故事归为一组，这些故事并不一定能够满足用户的目标。这些故事用来覆盖可能的改进点（或者边界情况），我们仍然需要多研究一下来决定他们的真实价值。</p>
+<h2 id="4-对可协商的故事，关注在最有价值的那部分"><a href="#4-对可协商的故事，关注在最有价值的那部分" class="headerlink" title="4. 对可协商的故事，关注在最有价值的那部分"></a>4. 对可协商的故事，关注在最有价值的那部分</h2><p>那时我们可以肯定两件事情：我们必须实现的故事和我们可以从 scope 中移除的部分。</p>
+<p>在中间的等级中（可协商的需求），我们把剩下的卡片都归为这一组。对每个在里面的故事，我们会问下面的问题：</p>
+<p>从目标方面考虑，这个故事有多少价值？</p>
+<p>我们能把基本的机制隔离到其它的故事中吗（把最基本的功能从它里面抽离出去，把剩下的部分留作『nice-to-have』的卡片）？</p>
+<p>通过问这些问题，一部分工作被合理剥离到更高的层次去，我们现在不需要去关心他们。对于剩下的那些最有价值的部分，就被移到了基本需求等级中。</p>
+<h1 id="下一步怎么做？现在轮到你了！"><a href="#下一步怎么做？现在轮到你了！" class="headerlink" title="下一步怎么做？现在轮到你了！"></a>下一步怎么做？现在轮到你了！</h1><p>通过这些简单的步骤，我们抽离出了原来 backlog 中更小的子集来做后续开发，在确保我们达到最重要目标的这个过程中，更快的试验和学习。</p>
+<p>与构建在 backlog 中说明的所有东西相比，我们关注在那些可以帮助我们验证假设的用户故事，这样来在最短的时间里增加价值。项目中剩下的时间可以用来重新审视（甚至创建全新的）我们值得去做的故事，这样我们就做到了基于目标来驱动开发。</p>
+<p>如果你碰巧也遇到同样的情况，为什么不试下这些简单的方法？这些方法可以帮我们很多忙，把你的 backlog 改成面向目标的，着一定也是极好的！</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Mr.Z 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Mr.Z 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr.Z
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jiukun.me/posts/d1f9ddfd/" title="[译] 野性的Backlog，你也可以驯服它！">http://jiukun.me/posts/d1f9ddfd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag"><i class="fa fa-tag"></i> 敏捷</a>
+              <a href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 需求分析</a>
+              <a href="/tags/%E8%AF%91%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 译文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/4c42d5a3/" rel="prev" title="我们为什么会犯错？ ">
+      <i class="fa fa-chevron-left"></i> 我们为什么会犯错？ 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/1bfafb16/" rel="next" title="产品需求之庖丁解牛">
+      产品需求之庖丁解牛 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#跟着价值走"><span class="nav-number">1.</span> <span class="nav-text">跟着价值走</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组织-Backlog"><span class="nav-number">2.</span> <span class="nav-text">组织 Backlog</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-辨识目标并排优先级"><span class="nav-number">2.1.</span> <span class="nav-text">1. 辨识目标并排优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-通过目标和用户来进行故事分组"><span class="nav-number">2.2.</span> <span class="nav-text">2. 通过目标和用户来进行故事分组**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-挑重要的做"><span class="nav-number">2.3.</span> <span class="nav-text">3. 挑重要的做</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-对可协商的故事，关注在最有价值的那部分"><span class="nav-number">2.4.</span> <span class="nav-text">4. 对可协商的故事，关注在最有价值的那部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下一步怎么做？现在轮到你了！"><span class="nav-number">3.</span> <span class="nav-text">下一步怎么做？现在轮到你了！</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mr.Z"
+      src="/images/comic_avartar.jpeg">
+  <p class="site-author-name" itemprop="name">Mr.Z</p>
+  <div class="site-description" itemprop="description">张先生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Z</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">34k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">31 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

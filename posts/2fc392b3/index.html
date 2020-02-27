@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari_pinned_tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jiukun.me","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="预测是一件非常困难的事情，尤其是预测未来。                                                                         —— 尼尔斯.波尔   定制化软件开发是一件复杂的事情，尤其是目前我们主要提供的端到端软件交付，它极大拓宽了软件开发的生命周期，更加着眼于业务价值，但这也增加了整个设计、分析、交付过程中的复杂度。软件交付已不仅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈软件项目规模估计（二）估什么？">
+<meta property="og:url" content="http://jiukun.me/posts/2fc392b3/index.html">
+<meta property="og:site_name" content="张先生的讲学堂">
+<meta property="og:description" content="预测是一件非常困难的事情，尤其是预测未来。                                                                         —— 尼尔斯.波尔   定制化软件开发是一件复杂的事情，尤其是目前我们主要提供的端到端软件交付，它极大拓宽了软件开发的生命周期，更加着眼于业务价值，但这也增加了整个设计、分析、交付过程中的复杂度。软件交付已不仅">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/46418-5ad6f0c945f463f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/46418-b5fd2d55855609bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2017-06-28T15:24:26.000Z">
+<meta property="article:modified_time" content="2020-02-27T12:48:08.939Z">
+<meta property="article:author" content="Mr.Z">
+<meta property="article:tag" content="敏捷">
+<meta property="article:tag" content="估计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/46418-5ad6f0c945f463f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+<link rel="canonical" href="http://jiukun.me/posts/2fc392b3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>浅谈软件项目规模估计（二）估什么？ | 张先生的讲学堂</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张先生的讲学堂</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">大丈夫当为天地立心，为生民立命，为往圣继绝学，为万世开太平。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jiukun.me/posts/2fc392b3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/comic_avartar.jpeg">
+      <meta itemprop="name" content="Mr.Z">
+      <meta itemprop="description" content="张先生的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张先生的讲学堂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅谈软件项目规模估计（二）估什么？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-06-28 23:24:26" itemprop="dateCreated datePublished" datetime="2017-06-28T23:24:26+08:00">2017-06-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%8F%E6%8D%B7/" itemprop="url" rel="index"><span itemprop="name">敏捷</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>预测是一件非常困难的事情，尤其是预测未来。<br>                                                                         —— 尼尔斯.波尔</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/46418-5ad6f0c945f463f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="波尔波尔"></p>
+<p>定制化软件开发是一件复杂的事情，尤其是目前我们主要提供的端到端软件交付，它极大拓宽了软件开发的生命周期，更加着眼于业务价值，但这也增加了整个设计、分析、交付过程中的复杂度。软件交付已不仅仅是传统意义上的技术交付，更包括了体验设计、业务分析、测试、管理、运维、运营支持、以及流程管理的内容。</p>
+<p>基于笔者几年浅薄的软件交付经验，尝试总结在初期进行规模估计的时候，应该考虑的范围会有哪些。</p>
+<a id="more"></a>
+
+<h1 id="体验设计"><a href="#体验设计" class="headerlink" title="体验设计"></a>体验设计</h1><p>在笔者看来，在互联网的产品的影响下，目前客户对体验设计的要求已经到了“奢侈”的程度，经常对仅有几十个、甚至几个用户的系统提出很多关于体验式上的较高要求。但人毕竟是视觉动物，好的展示效果、使用体验往往是产品的加分项，能带来比较大的口碑收益。同时，这也是最容易跟客户（尤其是业务客户）产生交流和互动的地方，有利于跟客户的深入沟通，特别是这些终端用户还经常是项目重要的 Stakeholder。</p>
+<p>在端到端交付中，设计人员会参与项目的整个交付过程，从最开始的 Discovery 一直到产品的上线，从与客户沟通设计需求，到方案设计、方案确认，再到开发过程中与开发人员、业务人员协同方案落地，从源头到落地保证方案的准确性。</p>
+<h1 id="功能性需求"><a href="#功能性需求" class="headerlink" title="功能性需求"></a>功能性需求</h1><p>在敏捷软件开发中，系统的业务功能会从终端用户的业务价值交付出发，被拆解为一个个用户故事，形如：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/46418-b5fd2d55855609bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="故事卡模板"></p>
+<p>全部的业务功能会形成一个用户故事列表，来从更细的粒度上描绘业务全景。<br>这部分是项目规模估计中最重要的一部分。所以业务分析和拆分的整个过程要非常非常非常的仔细，因为初期的这个故事列表很可能会成为对客户的一个承诺，未来如果发现不在故事列表中，但也必须要做的重要支撑功能时，就需要增加跟客户协商谈判的成本，或者默默的认了。。</p>
+<p>在拆分完成进行复检时，敏捷团队（而不仅仅是BA），可以可以问自己下面这几个问题：</p>
+<ul>
+<li>客户所处的行业是什么？本行业有没有固定的业务领域模型？客户想做的是哪个模型的扩展？</li>
+<li>有没有类似的竞品可以参考？</li>
+<li>有没有考虑系统交互的全部的用户角色？</li>
+<li>有没有系统自动推进、不需要用户交互的任务？</li>
+<li>有没有考虑全部的业务场景？正常的场景和异常的场景？</li>
+<li>每个场景的每一步是如何对接的？具体的详情是什么？是否可以进行进一步拆分？</li>
+<li>每个环节使用的用户数量是多少，会有性能要求么（精确到每个指标）？</li>
+<li>系统边界是什么？待开发系统和待集成系统各自完成的业务功能是什么？</li>
+<li>是全新的系统，还是需要与旧有系统做数据迁移，逐步替代？是否有逐步替代的计划和方案？</li>
+</ul>
+<p>拆分方法可以参考<a href="http://www.jianshu.com/p/8a3c4f67addb" target="_blank" rel="noopener">《产品需求之庖丁解牛》</a>，在这里就不展开了。</p>
+<h1 id="非功能需求"><a href="#非功能需求" class="headerlink" title="非功能需求"></a>非功能需求</h1><p>除了功能需求外，非功能需求更要引起重视，这往往是项目容易忽略、掉到坑里的地方。</p>
+<p>考虑到我们开发的往往是 Web 或者 Mobile的产品，最基本的，要考虑：</p>
+<ul>
+<li>浏览器的兼容性问题：兼容哪些浏览器，兼容版本。</li>
+<li>移动端的兼容性问题：兼容哪些手机设备，操作系统，版本号。</li>
+</ul>
+<p>除此之外还包括：性能，可维护性，可测试性，可用性，可移植性，可扩展性等，项目太多就不展开了，这里单说下性能。</p>
+<p>性能是个比较容易量化的需求，比如同时并发访问的人数、页面读取时间等。对于一些用户量较大、高并发的场景，可能需要做多级的性能调优：从应用代码级别、到数据库级别，再到部署架构级别，甚至CDN缓存级别，都可能成为需要考虑的部分。这部分根据项目的情况不同，差异会很大。有的项目可能并不需要投入太多精力在这上面，只需要对其中明显的性能问题进行一些修复，但有的项目可能整个项目都在满足性能上的要求，所以不可不察。</p>
+<h1 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h1><p>有些项目，客户会比较看重我们对产品架构的设计能力。这个时候，技术架构不仅仅需要简单满足短期项目的诉求，还需要有更长远的规划。在这种情况下，前期 Inception 的时间不能支撑整个项目技术架构的设计和搭建，可能是需要更长时间的设计和演进，这部分可以作为独立的工作来进行估计。部署架构亦然。</p>
+<h1 id="开发部署环境"><a href="#开发部署环境" class="headerlink" title="开发部署环境"></a>开发部署环境</h1><p>同时，为了能够支撑持续集成/持续交付，整个交付过程往往需要一系列的开发、测试、上线的环境，包括但不限于：CI环境、开发环境、QA环境、SIT环境、UAT环境、Pre-Prod和Prod环境。如果这些没有预先准备好的话，这些环境的准备工作也会话不少时间，尤其是当同时涉及客户内网和外网的情况下，甚至会成为项目的严重风险。刚看到目前已经有团队在进行环境方面基础设施的标准化了，未来有望把这部分内容直接打包在整体服务里，作为竞争优势的一部分，真实可喜可贺！</p>
+<h1 id="与三方的集成"><a href="#与三方的集成" class="headerlink" title="与三方的集成"></a>与三方的集成</h1><p>集成往往不是个小问题。目前的软件项目，往往都是基于现有的系统进行开发，所以集成的工作必不可少。如何进行契约的制定、数据的迁移、其它供应商三方系统开发工作的推进、接口的集成联调等，往往都是项目全周期的工作重点。一定从项目第一天开始就要思考持续集成、持续交付，万不可把这部分工作留到最后处理，血泪经验之谈。</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>敏捷项目中的测试，跟传统的先开发、再测试的这种方式极为不同的一点是：没有固定的 Tester，而是全员来保证软件的质量。测试包括的范畴也比较广，目前项目中的标配包括了：</p>
+<ul>
+<li>自动化测试：单元测试/集成测试/功能测试</li>
+<li>迭代内探索性测试</li>
+<li>业务回归测试</li>
+<li>性能测试</li>
+<li>安全测试</li>
+<li>代码质量测试</li>
+<li>…</li>
+</ul>
+<p>这些测试根据项目规模、复杂度的不同，规模估计上会有较大差距。就比如安全测试，有的系统时面对企业内部用户使用的，仅部署在内网，这样仅实现内部权限控制即可，一般不会有安全问题，安全测试的粒度也可以适当放粗；但有的系统要部署在互联网上，供终端用户使用，此时安全测试不仅仅要考虑应用层面的权限隔离，还要考虑网络层面的防火墙、防攻击策略等。这部分可以由专业的安全专家提供建议方案，看如何合理的将测试任务放到总的规模估计中，并与客户提早达成一致。</p>
+<h1 id="验收交接流程"><a href="#验收交接流程" class="headerlink" title="验收交接流程"></a>验收交接流程</h1><p>这部分是比较容易忽略的，主要包括了软件的整个验收流程、代码交接、文档撰写工作，根据情况不同，可能会使项目延长1周~4周不等的时间，在项目之初也要考虑到。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在初期进行规模估计绝不是一件容易的事情，需要跟客户的深度沟通，敏锐的洞察力，多角色的思考，以及快速的判断，否则后面。。。不说了，我先填坑去了。。。[捂脸哭]</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Mr.Z 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Mr.Z 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr.Z
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jiukun.me/posts/2fc392b3/" title="浅谈软件项目规模估计（二）估什么？">http://jiukun.me/posts/2fc392b3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag"><i class="fa fa-tag"></i> 敏捷</a>
+              <a href="/tags/%E4%BC%B0%E8%AE%A1/" rel="tag"><i class="fa fa-tag"></i> 估计</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/16b9c708/" rel="prev" title="浅谈软件项目规模估计（一）什么时候估？">
+      <i class="fa fa-chevron-left"></i> 浅谈软件项目规模估计（一）什么时候估？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/36bc9d16/" rel="next" title="[译] 敏捷软件开发 - 项目估计的意义">
+      [译] 敏捷软件开发 - 项目估计的意义 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#体验设计"><span class="nav-number">1.</span> <span class="nav-text">体验设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能性需求"><span class="nav-number">2.</span> <span class="nav-text">功能性需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#非功能需求"><span class="nav-number">3.</span> <span class="nav-text">非功能需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术架构"><span class="nav-number">4.</span> <span class="nav-text">技术架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发部署环境"><span class="nav-number">5.</span> <span class="nav-text">开发部署环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与三方的集成"><span class="nav-number">6.</span> <span class="nav-text">与三方的集成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-number">7.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验收交接流程"><span class="nav-number">8.</span> <span class="nav-text">验收交接流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mr.Z"
+      src="/images/comic_avartar.jpeg">
+  <p class="site-author-name" itemprop="name">Mr.Z</p>
+  <div class="site-description" itemprop="description">张先生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Z</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">34k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">31 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

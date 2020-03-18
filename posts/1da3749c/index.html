@@ -20,24 +20,24 @@
     var CONFIG = {"hostname":"jiukun.me","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="引子听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：  Lead Time Deployment Frequency MTTR Failure Rate用于指导软件交付项目的交付能力。后来有机会在 Oreilly 上看到这本书的电子版，发现联名作者之一，正是大名鼎鼎的《持续交付》的作者 Jez Humble，再看里面内容，正式对过去几年现代软件开发中所推崇的工程实践、管理">
+  <meta name="description" content="第二章 软件交付效能度量 软件项目的度量一直是一个难题，与制造业不同的是，库存是不可见的。而且，在敏捷软件开发方法中，工作的拆解、设计、开发是同时发生的，更加难度量。我们会基于我们实现的软件来进行演进，但第一步是要定义一个有效的、可靠的软件交付效能的度量方法。 传统度量方式的瑕疵对于软件团队来说，出现过很多的度量方式，不够大部分度量针对”生产能力”的。一般来说，这会有2个问题：  outputs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[笔记] - Accelerate 读书笔记">
-<meta property="og:url" content="http://jiukun.me/posts/487e310e/index.html">
+<meta property="og:title" content="[笔记] - Accelerate 读书笔记(2)">
+<meta property="og:url" content="http://jiukun.me/posts/1da3749c/index.html">
 <meta property="og:site_name" content="张先生的讲学堂">
-<meta property="og:description" content="引子听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：  Lead Time Deployment Frequency MTTR Failure Rate用于指导软件交付项目的交付能力。后来有机会在 Oreilly 上看到这本书的电子版，发现联名作者之一，正是大名鼎鼎的《持续交付》的作者 Jez Humble，再看里面内容，正式对过去几年现代软件开发中所推崇的工程实践、管理">
+<meta property="og:description" content="第二章 软件交付效能度量 软件项目的度量一直是一个难题，与制造业不同的是，库存是不可见的。而且，在敏捷软件开发方法中，工作的拆解、设计、开发是同时发生的，更加难度量。我们会基于我们实现的软件来进行演进，但第一步是要定义一个有效的、可靠的软件交付效能的度量方法。 传统度量方式的瑕疵对于软件团队来说，出现过很多的度量方式，不够大部分度量针对”生产能力”的。一般来说，这会有2个问题：  outputs">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg-h600">
-<meta property="og:image" content="http://q6d3pw4zw.bkt.clouddn.com/acc_002.jpg">
-<meta property="article:published_time" content="2020-03-18T02:27:25.000Z">
-<meta property="article:modified_time" content="2020-03-18T02:48:22.478Z">
+<meta property="og:image" content="http://q6d3pw4zw.bkt.clouddn.com/acc_2_1.png-h600">
+<meta property="og:image" content="http://q6d3pw4zw.bkt.clouddn.com/acc_2_2.png">
+<meta property="article:published_time" content="2020-03-18T07:46:17.000Z">
+<meta property="article:modified_time" content="2020-03-18T08:14:16.285Z">
 <meta property="article:author" content="Mr.Z">
 <meta property="article:tag" content="敏捷">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg-h600">
+<meta name="twitter:image" content="http://q6d3pw4zw.bkt.clouddn.com/acc_2_1.png-h600">
 
-<link rel="canonical" href="http://jiukun.me/posts/487e310e/">
+<link rel="canonical" href="http://jiukun.me/posts/1da3749c/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>[笔记] - Accelerate 读书笔记 | 张先生的讲学堂</title>
+  <title>[笔记] - Accelerate 读书笔记(2) | 张先生的讲学堂</title>
   
 
 
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jiukun.me/posts/487e310e/">
+    <link itemprop="mainEntityOfPage" href="http://jiukun.me/posts/1da3749c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/comic_avartar.jpeg">
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [笔记] - Accelerate 读书笔记
+          [笔记] - Accelerate 读书笔记(2)
         </h1>
 
         <div class="post-meta">
@@ -192,7 +192,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-18 10:27:25" itemprop="dateCreated datePublished" datetime="2020-03-18T10:27:25+08:00">2020-03-18</time>
+              <time title="创建时间：2020-03-18 15:46:17" itemprop="dateCreated datePublished" datetime="2020-03-18T15:46:17+08:00">2020-03-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,14 +210,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -229,71 +229,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg-h600" alt="book cover"></p>
-<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：</p>
+        <h1 id="第二章-软件交付效能度量"><a href="#第二章-软件交付效能度量" class="headerlink" title="第二章 软件交付效能度量"></a>第二章 软件交付效能度量</h1><p><img src="http://q6d3pw4zw.bkt.clouddn.com/acc_2_1.png-h600" alt="vernier caliper"></p>
+<p>软件项目的度量一直是一个难题，与制造业不同的是，库存是不可见的。而且，在敏捷软件开发方法中，工作的拆解、设计、开发是同时发生的，更加难度量。我们会基于我们实现的软件来进行演进，但第一步是要定义一个有效的、可靠的软件交付效能的度量方法。</p>
+<h2 id="传统度量方式的瑕疵"><a href="#传统度量方式的瑕疵" class="headerlink" title="传统度量方式的瑕疵"></a>传统度量方式的瑕疵</h2><p>对于软件团队来说，出现过很多的度量方式，不够大部分度量针对”生产能力”的。一般来说，这会有2个问题：</p>
+<ol>
+<li>outputs over outcome。过分关注产出物的数量，而忽视价值。</li>
+<li>关注于个人而不是团队，或者产品、组织，关注局部而非全局。</li>
+</ol>
+<p>这种方式的典型代表，就是通过代码行数，速度（Velocity），利用率（Utilization）来去度量交付效能。这些度量方式，都有自己致命的问题：</p>
+<h3 id="通过代码行数来进行度量。"><a href="#通过代码行数来进行度量。" class="headerlink" title="通过代码行数来进行度量。"></a>通过代码行数来进行度量。</h3><p>有过编程经验的人都知道，对于一个问题的代码解决方案，往往不是唯一的，不同的人基于自己的知识能力和经验，会有不同的方案。有好的方案，但难有最优的方案。如果从代码行数的角度来思考：</p>
+<ol>
+<li>如果可以用 10 行解决问题，优于用 1000 行解决问题</li>
+<li>最好可以不写代码解决问题</li>
+<li>然后，10行清晰高质量的代码，要优于 1 行无法理解的代码解决问题<br>所以，难以显性的界定解决问题的最佳方案应该使用多少行代码，当然更加不是“越多越好”。</li>
+</ol>
+<h3 id="通过-Velocity-来进行度量"><a href="#通过-Velocity-来进行度量" class="headerlink" title="通过 Velocity 来进行度量"></a>通过 Velocity 来进行度量</h3><p>随着敏捷软件开发的流行（尤其是 Scrum），Velocity 成为一种流行的度量方式。问题被分解成故事卡，故事卡经过估算，被指定了一个点数，来代表完成这张所需的相对工作量。每个迭代交付给客户的故事卡累计的总点数，被称作团队的 Velocity。Velocity 一般会用在燃尽/燃起图中，来预测团队完成全部工作所需的实践。然而，一些管理者，会用来度量团队“生产力”，甚至比较团队的效率。</p>
+<p>使用 Velocity 作为生产力的度量会有很多瑕疵，比如：</p>
+<ol>
+<li>Velocity 是一个相对估计，在不同的上下文中，代表的意义差距很大。对同样一张故事卡来说，不同的团队可以给出截然不同的估计，但这都是有意义的，只是因为相对的故事卡片的基点不同。</li>
+<li>使用 Velocity 作为生产力度量工具，团队会不可避免的进行博弈，他们会增大自己的估算，尽量多的完成点数，但会以不与其它团队合作为代价，以此来压低别的团队完成的点数，导致恶性竞争的结果。这样不仅让 Velocity 失去了原有的意义，同时还不利于团队合作。</li>
+</ol>
+<h3 id="通过-UT（人员利用率）来进行度量"><a href="#通过-UT（人员利用率）来进行度量" class="headerlink" title="通过 UT（人员利用率）来进行度量"></a>通过 UT（人员利用率）来进行度量</h3><p>在精益生产中我们学到，当 UT 高到一定程度，就会无法吸收未被计划的工作、对计划的变更、以及改善性工作，会使得团队的响应时间大幅提升。 UT 达到 100% 时，前置时间（Lead Time）将无限大。同时用 UT 和 Lead Time 进行度量，是一种比较平衡的度量方式。</p>
+<h2 id="度量软件交付性能"><a href="#度量软件交付性能" class="headerlink" title="度量软件交付性能"></a>度量软件交付性能</h2><p>成功的效能度量应该有 2 个关键的特征：</p>
+<ol>
+<li>关注于全局的产出而非局部，避免团队的目标互相冲突。这里有一个经典的反例。开发的绩效是产出，而运维是稳定性，开发就堆大量低质量的代码，来提升可见的产出，而运维就搞繁冗的流程避免变更，来提升稳定性。</li>
+<li>关注 outcome 而不是 output，不应该鼓励不停加班，但实际上并不会帮助组织达成目标。</li>
+</ol>
+<p>在这个基础上，总结出了衡量软件交付效能的 4 个核心指标，分别是：</p>
 <ul>
-<li>Lead Time</li>
-<li>Deployment Frequency</li>
-<li>MTTR</li>
-<li>Failure Rate<br>用于指导软件交付项目的交付能力。后来有机会在 Oreilly 上看到这本书的电子版，发现联名作者之一，正是大名鼎鼎的《持续交付》的作者 Jez Humble，再看里面内容，正式对过去几年现代软件开发中所推崇的工程实践、管理实践和文化的总结，很适合作为一本指导书籍，来反观自己的组织、项目在这些方面是如何做的，以及是否可以基于文中所描述的予以改进和提升。</li>
+<li>Lead time，前置时间。这是精益理论的核心度量指标。产品设计不确定性太高，难以度量，所以仅度量从提交代码到成功在产品环境运行这个过程，越短约好。</li>
+<li>Deployment Frequency，部署频率。使用部署频率来进行度量的核心理念是减少库存。库存量也是精益度量指标。使用部署频率来减少库存的原因是，软件的库存难以度量，以及库存涉及跨上下文沟通，所以用部署频率来代替，越频繁约好。<br>MTTR - Mean time to restore，系统从故障到恢复的平均时间，用于度量系统稳定性。过去是通过两次失败的间隔时间，但现代系统频繁变更，变更失败在所难免，所以问题切换成，如何快速恢复服务，越短越好。<br>Failure Rate - 失败率，指的是部署流程中，失败部署的比例，是一个质量的度量。</li>
 </ul>
-<p>书中的结论，是基于对当下众多软件企业和项目的调研，有其科学性的一面，不过这部分内容不在我的关注范围内，所以略去。下面是笔记内容。</p>
-<a id="more"></a>
-
-<h1 id="第一章-加速"><a href="#第一章-加速" class="headerlink" title="第一章 加速"></a>第一章 加速</h1><p>随着 IT 产业的发展，按部就班的运转业务已经很难具备竞争力。从金融、银行，到通讯零售，甚至包含政府的各行各业，都在尝试使用小团队，更短周期的交付产品和服务，从而更频繁的从用户侧获取反馈。</p>
-<p>为了保持在市场的竞争力，组织必须要加速：</p>
-<ul>
-<li>产品和服务的交付来满足客户的需求</li>
-<li>进驻市场，侦测并理解客户的需求</li>
-<li>监测可能影响系统的法律法规的变化</li>
-<li>对潜在风险的反应速度，比如安全威胁或者经济形式的变化</li>
-</ul>
-<p>各大企业正在进行数字化转型，来加速对这一切的响应。软件是这一切的核心所在，软件和技术是不同组织交付价值和核心差异。</p>
-<p>这本书谈及的能力和实践与 DevOps 运动相关，这场运动正在改变我们所处的行业。DevOps 萌生于一小部分组织面对的问题：<strong>如何构建一个安全、弹性的、快速演进的分布式系统</strong>。通过采用这些实践，企业获取了更丰厚的利润，降低了成本，加速的交付。书中定义了 24 个核心的能力来驱动软件交付效能的提升，以此改变组织的效能。</p>
-<p>这 24 个核心能力分为5类，分别为：</p>
-<ul>
-<li>持续交付</li>
-<li>架构</li>
-<li>产品和流程</li>
-<li>精益管理和监控</li>
-<li>文化</li>
-</ul>
-<p>每个分类中，细化的能力如下：</p>
-<h2 id="持续交付的能力"><a href="#持续交付的能力" class="headerlink" title="持续交付的能力"></a>持续交付的能力</h2><ol>
-<li>对所有产品的制品（artifacts）进行版本控制，包括应用代码，应用配置，系统配置，自动化构建、测试脚本，环境配置。</li>
-<li>自动化部署流程，完全不需要手动干预。</li>
-<li>实现持续集成，从代码提交到包的构建。</li>
-<li>使用基于主干的开发策略（trunk-base development）。</li>
-<li>实施自动化测试。</li>
-<li>支持测试数据管理。</li>
-<li>前置安全策略，集成安全到设计和测试环节。</li>
-<li>实现持续交付，使软件随时可以处于可部署状态。</li>
-</ol>
-<h2 id="架构能力"><a href="#架构能力" class="headerlink" title="架构能力"></a>架构能力</h2><ol start="9">
-<li>使用松耦合架构，让团队可以独立部署服务，而不需要依赖于其它团队的支持。</li>
-<li>架构师赋能团队，团队自主决定工具的使用。</li>
-</ol>
-<h2 id="产品和流程能力"><a href="#产品和流程能力" class="headerlink" title="产品和流程能力"></a>产品和流程能力</h2><ol start="11">
-<li>收集和应用用户反馈，组织主动、定期的搜集用户反馈，并把反馈引入产品设计中，对于软件交付效能很重要。</li>
-<li>通过价值流的方式，可视化工作流，对 IT 效能有积极影响。</li>
-<li>小批量的工作，可以有更短的 Lead Time，更频繁的反馈周期</li>
-<li>培育和赋能团队进行实验，鼓励创新，定义自己的标准。</li>
-</ol>
-<h2 id="精益管理和监控能力"><a href="#精益管理和监控能力" class="headerlink" title="精益管理和监控能力"></a>精益管理和监控能力</h2><ol start="15">
-<li>轻量的变更审批流程，比如 Peer review（结对编程，或者团队内代码检视），而不是通过 CAB。</li>
-<li>跨应用和基础设施的监控，来影响业务决策。</li>
-<li>主动、前置检查系统监控度。</li>
-<li>使用 WIP 控制在制品的数量。</li>
-<li>可视化工作，来监控质量，在团队实时拉通。</li>
-</ol>
-<h2 id="文化能力"><a href="#文化能力" class="headerlink" title="文化能力"></a>文化能力</h2><ol start="20">
-<li>效能导向型文化。</li>
-<li>鼓励和支持学习</li>
-<li>支持并组织跨团队合作</li>
-<li>提供资源和工具，使工作有意义，提升工作满意度。</li>
-<li>支持并具象化转型领导力。</li>
-</ol>
-<p><img src="http://q6d3pw4zw.bkt.clouddn.com/acc_002.jpg" alt="Culture Capability"><br>后面的章节，会对这些能力进行展开，但并不会按照能力的顺序，而经由重新的组织。本笔记会尝试按照能力的顺序来讲解。</p>
+<p>下面有一组数据，展示了 2017 年软件交付效能中，这几个核心指标所处的位置，可以对照看自己的项目处在一个什么样的水准。</p>
+<p><img src="http://q6d3pw4zw.bkt.clouddn.com/acc_2_2.png" alt="Software Delivery Performance for 2017"></p>
 
     </div>
 
@@ -329,7 +297,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jiukun.me/posts/487e310e/" title="[笔记] - Accelerate 读书笔记">http://jiukun.me/posts/487e310e/</a>
+    <a href="http://jiukun.me/posts/1da3749c/" title="[笔记] - Accelerate 读书笔记(2)">http://jiukun.me/posts/1da3749c/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -351,8 +319,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/5235f344/" rel="prev" title="我是怎么一步步不相信反馈的">
-      <i class="fa fa-chevron-left"></i> 我是怎么一步步不相信反馈的
+    <a href="/posts/368e275f/" rel="prev" title="[笔记] - Accelerate 读书笔记(1)">
+      <i class="fa fa-chevron-left"></i> [笔记] - Accelerate 读书笔记(1)
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -421,7 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-加速"><span class="nav-number">2.</span> <span class="nav-text">第一章 加速</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#持续交付的能力"><span class="nav-number">2.1.</span> <span class="nav-text">持续交付的能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构能力"><span class="nav-number">2.2.</span> <span class="nav-text">架构能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品和流程能力"><span class="nav-number">2.3.</span> <span class="nav-text">产品和流程能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#精益管理和监控能力"><span class="nav-number">2.4.</span> <span class="nav-text">精益管理和监控能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文化能力"><span class="nav-number">2.5.</span> <span class="nav-text">文化能力</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-软件交付效能度量"><span class="nav-number">1.</span> <span class="nav-text">第二章 软件交付效能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统度量方式的瑕疵"><span class="nav-number">1.1.</span> <span class="nav-text">传统度量方式的瑕疵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过代码行数来进行度量。"><span class="nav-number">1.1.1.</span> <span class="nav-text">通过代码行数来进行度量。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-Velocity-来进行度量"><span class="nav-number">1.1.2.</span> <span class="nav-text">通过 Velocity 来进行度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-UT（人员利用率）来进行度量"><span class="nav-number">1.1.3.</span> <span class="nav-text">通过 UT（人员利用率）来进行度量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#度量软件交付性能"><span class="nav-number">1.2.</span> <span class="nav-text">度量软件交付性能</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +405,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -487,12 +455,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">37k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">34 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
@@ -560,9 +528,9 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       api       : '' || 'https://disqus.com/api/',
       apikey    : 'NpqiQba0TkJmnTdFwbrNytcMRMgSwuuTesbpFyOgBHSaORjJOrqIV0lEA2MRyAKB',
       shortname : 'jiukun',
-      url       : "http://jiukun.me/posts/487e310e/",
-      identifier: "posts/487e310e/",
-      title     : "[笔记] - Accelerate 读书笔记",
+      url       : "http://jiukun.me/posts/1da3749c/",
+      identifier: "posts/1da3749c/",
+      title     : "[笔记] - Accelerate 读书笔记(2)",
     });
   }, window.DisqusJS);
 });

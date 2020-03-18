@@ -1,11 +1,11 @@
 ---
-title: '[笔记] - Accelerate 读书笔记'
+title: '[笔记] - Accelerate 读书笔记(1)'
 categories:
   - 敏捷
 tags:
   - 敏捷
   - devops
-abbrlink: 487e310e
+abbrlink: 368e275f
 date: 2020-03-18 10:27:25
 ---
 
@@ -81,4 +81,4 @@ date: 2020-03-18 10:27:25
 24. 支持并具象化转型领导力。
 
 ![Culture Capability](http://q6d3pw4zw.bkt.clouddn.com/acc_002.jpg)
-后面的章节，会对这些能力进行展开，但并不会按照能力的顺序，而经由重新的组织。本笔记会尝试按照能力的顺序来讲解。
+后面的章节，会对这些能力进行展开，但并不会按照能力的顺序，而经由重新的组织。

@@ -9,7 +9,7 @@ abbrlink: 487e310e
 date: 2020-03-18 10:27:25
 ---
 
-![book cover](http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg)
+![book cover](http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg-h600)
 # 引子
 听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：
  - Lead Time

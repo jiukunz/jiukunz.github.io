@@ -20,24 +20,24 @@
     var CONFIG = {"hostname":"jiukun.me","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="原作者：Martin Fowler原文链接：PurposeOfEstimation翻译：Mr.Z   我第一次接触敏捷软件开发，是在极限编程开始的时候与 Kent Beck 一起。那个项目，他们做计划的方式给我留下了深刻的印象。跟我之前的经历相比，他们采用了更轻量但有效的估计方法。从那时起到现在，已经过了不止十年。在资深的敏捷践行者中间，一直存在一个争论：估计是不是值得做，或者这是不是一个有害的事">
+  <meta name="description" content="引子听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：  Lead Time Deployment Frequency MTTR Failure Rate用于指导软件交付项目的交付能力。后来有机会在 Oreilly 上看到这本书的电子版，发现联名作者之一，正是大名鼎鼎的《持续交付》的作者 Jez Humble，再看里面内容，正式对过去几年现代软件开发中所推崇的工程实践、管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[译] 敏捷软件开发 - 项目估计的意义">
-<meta property="og:url" content="http://jiukun.me/posts/36bc9d16/index.html">
+<meta property="og:title" content="[笔记] - Accelerate 读书笔记">
+<meta property="og:url" content="http://jiukun.me/posts/487e310e/index.html">
 <meta property="og:site_name" content="张先生的讲学堂">
-<meta property="og:description" content="原作者：Martin Fowler原文链接：PurposeOfEstimation翻译：Mr.Z   我第一次接触敏捷软件开发，是在极限编程开始的时候与 Kent Beck 一起。那个项目，他们做计划的方式给我留下了深刻的印象。跟我之前的经历相比，他们采用了更轻量但有效的估计方法。从那时起到现在，已经过了不止十年。在资深的敏捷践行者中间，一直存在一个争论：估计是不是值得做，或者这是不是一个有害的事">
+<meta property="og:description" content="引子听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：  Lead Time Deployment Frequency MTTR Failure Rate用于指导软件交付项目的交付能力。后来有机会在 Oreilly 上看到这本书的电子版，发现联名作者之一，正是大名鼎鼎的《持续交付》的作者 Jez Humble，再看里面内容，正式对过去几年现代软件开发中所推崇的工程实践、管理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://q6d3pw4zw.bkt.clouddn.com/estimation_1.png">
-<meta property="article:published_time" content="2017-07-03T09:10:58.000Z">
-<meta property="article:modified_time" content="2020-02-27T14:56:51.699Z">
+<meta property="og:image" content="http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg">
+<meta property="og:image" content="http://q6d3pw4zw.bkt.clouddn.com/acc_002.jpg">
+<meta property="article:published_time" content="2020-03-18T02:27:25.000Z">
+<meta property="article:modified_time" content="2020-03-18T02:31:47.051Z">
 <meta property="article:author" content="Mr.Z">
 <meta property="article:tag" content="敏捷">
-<meta property="article:tag" content="估计">
-<meta property="article:tag" content="译文">
+<meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q6d3pw4zw.bkt.clouddn.com/estimation_1.png">
+<meta name="twitter:image" content="http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg">
 
-<link rel="canonical" href="http://jiukun.me/posts/36bc9d16/">
+<link rel="canonical" href="http://jiukun.me/posts/487e310e/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>[译] 敏捷软件开发 - 项目估计的意义 | 张先生的讲学堂</title>
+  <title>[笔记] - Accelerate 读书笔记 | 张先生的讲学堂</title>
   
 
 
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jiukun.me/posts/36bc9d16/">
+    <link itemprop="mainEntityOfPage" href="http://jiukun.me/posts/487e310e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/comic_avartar.jpeg">
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [译] 敏捷软件开发 - 项目估计的意义
+          [笔记] - Accelerate 读书笔记
         </h1>
 
         <div class="post-meta">
@@ -192,7 +192,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-07-03 17:10:58" itemprop="dateCreated datePublished" datetime="2017-07-03T17:10:58+08:00">2017-07-03</time>
+              <time title="创建时间：2020-03-18 10:27:25" itemprop="dateCreated datePublished" datetime="2020-03-18T10:27:25+08:00">2020-03-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,14 +210,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -229,32 +229,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>原作者：<a href="https://martinfowler.com/" target="_blank" rel="noopener">Martin Fowler</a><br>原文链接：<a href="https://martinfowler.com/bliki/PurposeOfEstimation.html" target="_blank" rel="noopener">PurposeOfEstimation</a><br>翻译：Mr.Z</p>
-<hr>
-<p><img src="http://q6d3pw4zw.bkt.clouddn.com/estimation_1.png" alt="image.png"></p>
-<p>我第一次接触敏捷软件开发，是在极限编程开始的时候与 Kent Beck 一起。那个项目，他们做计划的方式给我留下了深刻的印象。跟我之前的经历相比，他们采用了更轻量但有效的估计方法。从那时起到现在，已经过了不止十年。在资深的敏捷践行者中间，一直存在一个争论：估计是不是值得做，或者这是不是一个有害的事情。要想回答这个问题，我们一定要先看下估计的意义到底是什么。</p>
+        <p><img src="http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg" alt="book cover"></p>
+<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：</p>
+<ul>
+<li>Lead Time</li>
+<li>Deployment Frequency</li>
+<li>MTTR</li>
+<li>Failure Rate<br>用于指导软件交付项目的交付能力。后来有机会在 Oreilly 上看到这本书的电子版，发现联名作者之一，正是大名鼎鼎的《持续交付》的作者 Jez Humble，再看里面内容，正式对过去几年现代软件开发中所推崇的工程实践、管理实践和文化的总结，很适合作为一本指导书籍，来反观自己的组织、项目在这些方面是如何做的，以及是否可以基于文中所描述的予以改进和提升。</li>
+</ul>
+<p>书中的结论，是基于对当下众多软件企业和项目的调研，有其科学性的一面，不过这部分内容不在我的关注范围内，所以略去。下面是笔记内容。</p>
 <a id="more"></a>
 
-<p>经常会有下面这些场景发生：</p>
+<h1 id="第一章-加速"><a href="#第一章-加速" class="headerlink" title="第一章 加速"></a>第一章 加速</h1><p>随着 IT 产业的发展，按部就班的运转业务已经很难具备竞争力。从金融、银行，到通讯零售，甚至包含政府的各行各业，都在尝试使用小团队，更短周期的交付产品和服务，从而更频繁的从用户侧获取反馈。</p>
+<p>为了保持在市场的竞争力，组织必须要加速：</p>
 <ul>
-<li>开发被要求对即将到来的活动进行估计。人们总是乐观的，所以估计值往往偏低，即使是在没有施加压力的情况下（岁经常会有一些隐性的压力）</li>
-<li>这些任务和估计会转变为发布计划，并使用燃尽图进行追踪</li>
-<li>在计划里会用时间追踪工作量进度。当工作在预定时间没完成的时候，谁都会感觉不舒服。为了加快节奏来赶上估计，开发会被告知通过牺牲质量来完成预定工作，不过这只会让事情变得更糟。</li>
+<li>产品和服务的交付来满足客户的需求</li>
+<li>进驻市场，侦测并理解客户的需求</li>
+<li>监测可能影响系统的法律法规的变化</li>
+<li>对潜在风险的反应速度，比如安全威胁或者经济形式的变化</li>
 </ul>
-<p>狭义上讲，把工作量转换成估计，在最好的情况下，也是一种浪费。因为“估计是干净衬衣上的猜测”（PS：没看懂老马在说什么。。）。大部分情况下，估计会以严重的副作用告终，因为他们会鼓励 FeatureDevotion 这么一种令人难受的状况 —- 人们开始关注于勾掉那些完成的功能，而不是追踪项目真正的价值产出。</p>
-<p>估计还会设置一种期望。因为估计值往往偏低，所以这事实上设置了一种不切实际的期望。对某个功能来说，花更多的时间来做，或者在预定的时间交付了少的功能，都被视为一种损失。因为对损失的恐惧，这些损失会有一个放大效应。</p>
-<p>面对类似这样的情况，很容易看到人们会把他们的怒气撒到估计身上。这会导致一种观念的增强：任何沉溺于估计的人都不是一个真正的敏捷践行者。敏捷的批评者会说：敏捷开发就是开发人员在做一些模棱两可的东西，并承诺能完成，并且当完成的时候，保证你一定会喜欢。</p>
-<p>我不会说估计是一个生而邪恶的实践。如果有人问我估计是不是一件坏东西，我的回答是标准的咨询师套路 – it depends。任何时候，当有人回答“it depends”的时候，接下来的问题就是“取决于什么(upon what)”。想要回答这个，我们必须要问，为什么我们要做估计 – 就像我常说的“如果这值得做好，那么在地球上你为什么要做它，就值得问一下”。</p>
-<p>对我来说，当估计可以帮你做一个重要决定的时候，它是有价值的。</p>
-<p>关于估计影响决策的第一个例子，是关于资源的分配。组织拥有基本固定数量的钱和人，经常有太多值得做的事情。因此人们面临着这样的抉择：我要做A还是B？面对这样的决定时，经常需要知道每件事情都涉及多少工作量（成本）。关于要做什么，如果想要做一个合理的决策，那么你需要对这两件事情的成本和收益都有些感觉。</p>
-<p>另一个例子是协同互助。蓝队想要在他们的网站上发布一些新特性，但是直到绿队构建一个新的服务提供了关键数据之后才能做。如果绿队估计他们会在2个月内做完，蓝队估计会花一个月来构建新特性，那么蓝队就知道没必要今天就开始。他们可以花至少一个月的时间工作在其它特性上，以尽早发布。</p>
-<p>因此，当你考虑是不是需要一个估计的时候，你应该搞清楚这个估计会影响什么决策。如果你发现没有，或者这个决定并不重要，那么这是个信号 — 估计是浪费的。当你确实有个决策与估计相关，那么估计可以给这个决定提供一些上下文，不过还是需要说明估计所需要的精确程度，以避免不必要的浪费。</p>
-<p>还要明白的一点是，这个决策可能可以用估计之外的行动来决定。可能任务A并不比B重要，你不需要把你全部的能量放到估计上，来率先把这件事完成。可能对蓝队成员来说，还可以跟绿队一块工作，来让服务构建的更快一些。</p>
-<p>同样，对计划的追踪也应该由它如何影响决策来驱动。在这里我经常会说，计划要作为估计改变的基线而存在。如果我们想要增加一个新特性，我们如何把它合适地放到<a href="https://martinfowler.com/bliki/FivePoundBag.html" target="_blank" rel="noopener">五磅的袋子</a>里？估计可以帮助我们理解这些权衡，以此决定对变化如何反应。在更大的尺度上，重估一整个发布可以帮我们理解，项目作为一个整体，我们的工作是否还是最优地分配在项目上。一些年前，我们有一个长达一年的项目，在做了两个月后进行了一次重估，项目被取消了。我们将此视之为成功，因为重估表明这个项目将会花费比我们初期预计的长得多的时间。更早的结束，可以让客户把资源移到更佳的目标上。</p>
-<p>但是记住，在追踪项目计划中，估计的保质期有限。我还记得有一个粗放的项目经理说过，计划和估计就像生菜叶子一样，一两天还挺新鲜，一个星期后就皱巴巴了，如果过了一两个月，就完全认不出来了。</p>
-<p>很多团队发现估计可以提供一个有效的推动力，让团队成员彼此沟通。估计会议可以让大家对即将要做的故事卡有更好的理解，包括未来的架构方向，以及代码库的设计问题。在这种前提下，任何输出的估计值变得不那么重要。这样的交流有很多种方式发生，但是如果这种讨论没有发生的话，估计的研讨可以被引入。相反，如果你在考虑停止估计的实践，你需要确保在估计中的有效沟通，可以在其它地方继续发生。</p>
-<p>去参加任何敏捷相关的会议，你都会听到在没有估计的情况下团队有效工作的事情。很多情况下这都行得通，是因为他们，以及他们的客户，理解进行估计并不会影响重要的决定。其中有一个例子，是一个小团队与业务紧密工作在一起，如果更大范围上，业务乐于安排一些人到业务单元上，那么工作可以贯彻业务的优先级；这会帮助团队把工作分解到更小的单元。团队级别的敏捷流畅度模型，在这里就扮演者重要的角色。当团队进度与估计发生冲突的时候，他们可以有效的调整，然后达到目标。</p>
-<p>估计既不好，也不坏。如果你可以在没有估计的情况下有效工作，那么继续下去。如果你认为你需要一些估计，那么确保你理解它们在决策制定时扮演的角色。如果它们会有重大影响，那么就尽量把估计做到最好。在此之外，要谨防那些总是告诉你他们需要估计或者完全不需要估计的人。任何关于是否进行估计的争辩，总应该指向这样的敏捷原则 – 在特定的情景下，要采用哪些正确的技术，应该由你来决定。</p>
+<p>各大企业正在进行数字化转型，来加速对这一切的响应。软件是这一切的核心所在，软件和技术是不同组织交付价值和核心差异。</p>
+<p>这本书谈及的能力和实践与 DevOps 运动相关，这场运动正在改变我们所处的行业。DevOps 萌生于一小部分组织面对的问题：<strong>如何构建一个安全、弹性的、快速演进的分布式系统</strong>。通过采用这些实践，企业获取了更丰厚的利润，降低了成本，加速的交付。书中定义了 24 个核心的能力来驱动软件交付效能的提升，以此改变组织的效能。</p>
+<p>这 24 个核心能力分为5类，分别为：</p>
+<ul>
+<li>持续交付</li>
+<li>架构</li>
+<li>产品和流程</li>
+<li>精益管理和监控</li>
+<li>文化</li>
+</ul>
+<p>每个分类中，细化的能力如下：</p>
+<h2 id="持续交付的能力"><a href="#持续交付的能力" class="headerlink" title="持续交付的能力"></a>持续交付的能力</h2><ol>
+<li>对所有产品的制品（artifacts）进行版本控制，包括应用代码，应用配置，系统配置，自动化构建、测试脚本，环境配置。</li>
+<li>自动化部署流程，完全不需要手动干预。</li>
+<li>实现持续集成，从代码提交到包的构建。</li>
+<li>使用基于主干的开发策略（trunk-base development）。</li>
+<li>实施自动化测试。</li>
+<li>支持测试数据管理。</li>
+<li>前置安全策略，集成安全到设计和测试环节。</li>
+<li>实现持续交付，使软件随时可以处于可部署状态。</li>
+</ol>
+<h2 id="架构能力"><a href="#架构能力" class="headerlink" title="架构能力"></a>架构能力</h2><ol start="9">
+<li>使用松耦合架构，让团队可以独立部署服务，而不需要依赖于其它团队的支持。</li>
+<li>架构师赋能团队，团队自主决定工具的使用。</li>
+</ol>
+<h2 id="产品和流程能力"><a href="#产品和流程能力" class="headerlink" title="产品和流程能力"></a>产品和流程能力</h2><ol start="11">
+<li>收集和应用用户反馈，组织主动、定期的搜集用户反馈，并把反馈引入产品设计中，对于软件交付效能很重要。</li>
+<li>通过价值流的方式，可视化工作流，对 IT 效能有积极影响。</li>
+<li>小批量的工作，可以有更短的 Lead Time，更频繁的反馈周期</li>
+<li>培育和赋能团队进行实验，鼓励创新，定义自己的标准。</li>
+</ol>
+<h2 id="精益管理和监控能力"><a href="#精益管理和监控能力" class="headerlink" title="精益管理和监控能力"></a>精益管理和监控能力</h2><ol start="15">
+<li>轻量的变更审批流程，比如 Peer review（结对编程，或者团队内代码检视），而不是通过 CAB。</li>
+<li>跨应用和基础设施的监控，来影响业务决策。</li>
+<li>主动、前置检查系统监控度。</li>
+<li>使用 WIP 控制在制品的数量。</li>
+<li>可视化工作，来监控质量，在团队实时拉通。</li>
+</ol>
+<h2 id="文化能力"><a href="#文化能力" class="headerlink" title="文化能力"></a>文化能力</h2><ol start="20">
+<li>效能导向型文化。</li>
+<li>鼓励和支持学习</li>
+<li>支持并组织跨团队合作</li>
+<li>提供资源和工具，使工作有意义，提升工作满意度。</li>
+<li>支持并具象化转型领导力。</li>
+</ol>
+<p><img src="http://q6d3pw4zw.bkt.clouddn.com/acc_002.jpg" alt="Culture Capability"><br>后面的章节，会对这些能力进行展开，但并不会按照能力的顺序，而经由重新的组织。本笔记会尝试按照能力的顺序来讲解。</p>
 
     </div>
 
@@ -290,7 +329,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jiukun.me/posts/36bc9d16/" title="[译] 敏捷软件开发 - 项目估计的意义">http://jiukun.me/posts/36bc9d16/</a>
+    <a href="http://jiukun.me/posts/487e310e/" title="[笔记] - Accelerate 读书笔记">http://jiukun.me/posts/487e310e/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -303,8 +342,7 @@
           
           <div class="post-tags">
               <a href="/tags/%E6%95%8F%E6%8D%B7/" rel="tag"><i class="fa fa-tag"></i> 敏捷</a>
-              <a href="/tags/%E4%BC%B0%E8%AE%A1/" rel="tag"><i class="fa fa-tag"></i> 估计</a>
-              <a href="/tags/%E8%AF%91%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 译文</a>
+              <a href="/tags/devops/" rel="tag"><i class="fa fa-tag"></i> devops</a>
           </div>
 
         
@@ -313,13 +351,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/2fc392b3/" rel="prev" title="浅谈软件项目规模估计（二）估什么？">
-      <i class="fa fa-chevron-left"></i> 浅谈软件项目规模估计（二）估什么？
+    <a href="/posts/5235f344/" rel="prev" title="我是怎么一步步不相信反馈的">
+      <i class="fa fa-chevron-left"></i> 我是怎么一步步不相信反馈的
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/b5623c89/" rel="next" title="浅谈软件项目规模估计（三）怎么估？">
-      浅谈软件项目规模估计（三）怎么估？ <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -386,6 +421,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-加速"><span class="nav-number">2.</span> <span class="nav-text">第一章 加速</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#持续交付的能力"><span class="nav-number">2.1.</span> <span class="nav-text">持续交付的能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构能力"><span class="nav-number">2.2.</span> <span class="nav-text">架构能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品和流程能力"><span class="nav-number">2.3.</span> <span class="nav-text">产品和流程能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#精益管理和监控能力"><span class="nav-number">2.4.</span> <span class="nav-text">精益管理和监控能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文化能力"><span class="nav-number">2.5.</span> <span class="nav-text">文化能力</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -524,9 +560,9 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       api       : '' || 'https://disqus.com/api/',
       apikey    : 'NpqiQba0TkJmnTdFwbrNytcMRMgSwuuTesbpFyOgBHSaORjJOrqIV0lEA2MRyAKB',
       shortname : 'jiukun',
-      url       : "http://jiukun.me/posts/36bc9d16/",
-      identifier: "posts/36bc9d16/",
-      title     : "[译] 敏捷软件开发 - 项目估计的意义",
+      url       : "http://jiukun.me/posts/487e310e/",
+      identifier: "posts/487e310e/",
+      title     : "[笔记] - Accelerate 读书笔记",
     });
   }, window.DisqusJS);
 });

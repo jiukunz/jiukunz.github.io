@@ -11,9 +11,12 @@ date: 2020-03-18 15:46:17
 
 # 第二章 软件交付效能度量
 
-![vernier caliper](http://q6d3pw4zw.bkt.clouddn.com/acc_2_1.png-h600)
+![vernier caliper](
+https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_2_1.jpeg)
 
 软件项目的度量一直是一个难题，与制造业不同的是，库存是不可见的。而且，在敏捷软件开发方法中，工作的拆解、设计、开发是同时发生的，更加难度量。我们会基于我们实现的软件来进行演进，但第一步是要定义一个有效的、可靠的软件交付效能的度量方法。
+
+<!--more-->
 
 ## 传统度量方式的瑕疵
 对于软件团队来说，出现过很多的度量方式，不够大部分度量针对”生产能力”的。一般来说，这会有2个问题：
@@ -54,4 +57,5 @@ Failure Rate - 失败率，指的是部署流程中，失败部署的比例，�
 
 下面有一组数据，展示了 2017 年软件交付效能中，这几个核心指标所处的位置，可以对照看自己的项目处在一个什么样的水准。
 
-![Software Delivery Performance for 2017](http://q6d3pw4zw.bkt.clouddn.com/acc_2_2.png)
+![Software Delivery Performance for 2017](
+https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_2_2.png)

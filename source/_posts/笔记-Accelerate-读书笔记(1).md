@@ -9,7 +9,8 @@ abbrlink: 368e275f
 date: 2020-03-18 10:27:25
 ---
 
-![book cover](http://q6d3pw4zw.bkt.clouddn.com/610tbJ%2BV-aL.jpg-h600)
+![book cover](
+https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_001.jpeg)
 # 引子
 听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：
  - Lead Time
@@ -80,5 +81,6 @@ date: 2020-03-18 10:27:25
 23. 提供资源和工具，使工作有意义，提升工作满意度。
 24. 支持并具象化转型领导力。
 
-![Culture Capability](http://q6d3pw4zw.bkt.clouddn.com/acc_002.jpg)
+![Culture Capability](
+https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_002.jpg)
 后面的章节，会对这些能力进行展开，但并不会按照能力的顺序，而经由重新的组织。

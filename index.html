@@ -229,40 +229,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="第二章-软件交付效能度量"><a href="#第二章-软件交付效能度量" class="headerlink" title="第二章 软件交付效能度量"></a>第二章 软件交付效能度量</h1><p><img src="https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_2_1.png-h600" alt="vernier caliper"></p>
+          <h1 id="第二章-软件交付效能度量"><a href="#第二章-软件交付效能度量" class="headerlink" title="第二章 软件交付效能度量"></a>第二章 软件交付效能度量</h1><p><img src="https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_2_1.jpeg" alt="vernier caliper"></p>
 <p>软件项目的度量一直是一个难题，与制造业不同的是，库存是不可见的。而且，在敏捷软件开发方法中，工作的拆解、设计、开发是同时发生的，更加难度量。我们会基于我们实现的软件来进行演进，但第一步是要定义一个有效的、可靠的软件交付效能的度量方法。</p>
-<h2 id="传统度量方式的瑕疵"><a href="#传统度量方式的瑕疵" class="headerlink" title="传统度量方式的瑕疵"></a>传统度量方式的瑕疵</h2><p>对于软件团队来说，出现过很多的度量方式，不够大部分度量针对”生产能力”的。一般来说，这会有2个问题：</p>
-<ol>
-<li>outputs over outcome。过分关注产出物的数量，而忽视价值。</li>
-<li>关注于个人而不是团队，或者产品、组织，关注局部而非全局。</li>
-</ol>
-<p>这种方式的典型代表，就是通过代码行数，速度（Velocity），利用率（Utilization）来去度量交付效能。这些度量方式，都有自己致命的问题：</p>
-<h3 id="通过代码行数来进行度量。"><a href="#通过代码行数来进行度量。" class="headerlink" title="通过代码行数来进行度量。"></a>通过代码行数来进行度量。</h3><p>有过编程经验的人都知道，对于一个问题的代码解决方案，往往不是唯一的，不同的人基于自己的知识能力和经验，会有不同的方案。有好的方案，但难有最优的方案。如果从代码行数的角度来思考：</p>
-<ol>
-<li>如果可以用 10 行解决问题，优于用 1000 行解决问题</li>
-<li>最好可以不写代码解决问题</li>
-<li>然后，10行清晰高质量的代码，要优于 1 行无法理解的代码解决问题<br>所以，难以显性的界定解决问题的最佳方案应该使用多少行代码，当然更加不是“越多越好”。</li>
-</ol>
-<h3 id="通过-Velocity-来进行度量"><a href="#通过-Velocity-来进行度量" class="headerlink" title="通过 Velocity 来进行度量"></a>通过 Velocity 来进行度量</h3><p>随着敏捷软件开发的流行（尤其是 Scrum），Velocity 成为一种流行的度量方式。问题被分解成故事卡，故事卡经过估算，被指定了一个点数，来代表完成这张所需的相对工作量。每个迭代交付给客户的故事卡累计的总点数，被称作团队的 Velocity。Velocity 一般会用在燃尽/燃起图中，来预测团队完成全部工作所需的实践。然而，一些管理者，会用来度量团队“生产力”，甚至比较团队的效率。</p>
-<p>使用 Velocity 作为生产力的度量会有很多瑕疵，比如：</p>
-<ol>
-<li>Velocity 是一个相对估计，在不同的上下文中，代表的意义差距很大。对同样一张故事卡来说，不同的团队可以给出截然不同的估计，但这都是有意义的，只是因为相对的故事卡片的基点不同。</li>
-<li>使用 Velocity 作为生产力度量工具，团队会不可避免的进行博弈，他们会增大自己的估算，尽量多的完成点数，但会以不与其它团队合作为代价，以此来压低别的团队完成的点数，导致恶性竞争的结果。这样不仅让 Velocity 失去了原有的意义，同时还不利于团队合作。</li>
-</ol>
-<h3 id="通过-UT（人员利用率）来进行度量"><a href="#通过-UT（人员利用率）来进行度量" class="headerlink" title="通过 UT（人员利用率）来进行度量"></a>通过 UT（人员利用率）来进行度量</h3><p>在精益生产中我们学到，当 UT 高到一定程度，就会无法吸收未被计划的工作、对计划的变更、以及改善性工作，会使得团队的响应时间大幅提升。 UT 达到 100% 时，前置时间（Lead Time）将无限大。同时用 UT 和 Lead Time 进行度量，是一种比较平衡的度量方式。</p>
-<h2 id="度量软件交付性能"><a href="#度量软件交付性能" class="headerlink" title="度量软件交付性能"></a>度量软件交付性能</h2><p>成功的效能度量应该有 2 个关键的特征：</p>
-<ol>
-<li>关注于全局的产出而非局部，避免团队的目标互相冲突。这里有一个经典的反例。开发的绩效是产出，而运维是稳定性，开发就堆大量低质量的代码，来提升可见的产出，而运维就搞繁冗的流程避免变更，来提升稳定性。</li>
-<li>关注 outcome 而不是 output，不应该鼓励不停加班，但实际上并不会帮助组织达成目标。</li>
-</ol>
-<p>在这个基础上，总结出了衡量软件交付效能的 4 个核心指标，分别是：</p>
-<ul>
-<li>Lead time，前置时间。这是精益理论的核心度量指标。产品设计不确定性太高，难以度量，所以仅度量从提交代码到成功在产品环境运行这个过程，越短约好。</li>
-<li>Deployment Frequency，部署频率。使用部署频率来进行度量的核心理念是减少库存。库存量也是精益度量指标。使用部署频率来减少库存的原因是，软件的库存难以度量，以及库存涉及跨上下文沟通，所以用部署频率来代替，越频繁约好。<br>MTTR - Mean time to restore，系统从故障到恢复的平均时间，用于度量系统稳定性。过去是通过两次失败的间隔时间，但现代系统频繁变更，变更失败在所难免，所以问题切换成，如何快速恢复服务，越短越好。<br>Failure Rate - 失败率，指的是部署流程中，失败部署的比例，是一个质量的度量。</li>
-</ul>
-<p>下面有一组数据，展示了 2017 年软件交付效能中，这几个核心指标所处的位置，可以对照看自己的项目处在一个什么样的水准。</p>
-<p><img src="https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_2_2.png" alt="Software Delivery Performance for 2017"></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/1da3749c/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -342,7 +318,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="https://mrz-blog.oss-cn-beijing.aliyuncs.com/610tbJ%2BV-aL.jpg-h600" alt="book cover"></p>
+          <p><img src="https://mrz-blog.oss-cn-beijing.aliyuncs.com/acc_001.jpeg" alt="book cover"></p>
 <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>听说这本书是因为公司的 P2 建设，里面设置了4个核心度量指标，分别是：</p>
 <ul>
 <li>Lead Time</li>

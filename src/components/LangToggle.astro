@@ -1,0 +1,35 @@
+---
+---
+
+<button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language">
+  <span class="lang-zh">中 / EN</span>
+  <span class="lang-en">中 / EN</span>
+</button>
+
+<style>
+  .lang-toggle {
+    background: none;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 4px;
+    padding: 0.35rem 0.85rem;
+    cursor: pointer;
+    color: var(--sidebar-text-secondary);
+    font-size: 0.8rem;
+    line-height: 1;
+  }
+
+  .lang-toggle:hover {
+    color: var(--sidebar-text);
+    border-color: var(--sidebar-text-secondary);
+  }
+</style>
+
+<script>
+  document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-lang');
+    const next = current === 'en' ? 'zh' : 'en';
+    html.setAttribute('data-lang', next);
+    localStorage.setItem('lang', next);
+  });
+</script>

@@ -7,24 +7,14 @@
     "projectsLabel": "精选项目",
     "projects": [
       {
-        "name": "项目名称 A",
-        "desc": "一句话描述这个项目做了什么",
-        "url": "https://github.com/jiukunz"
-      },
-      {
-        "name": "项目名称 B",
-        "desc": "一句话描述这个项目做了什么",
-        "url": "https://github.com/jiukunz"
-      },
-      {
-        "name": "项目名称 C",
-        "desc": "一句话描述这个项目做了什么",
+        "name": "装备足迹（GearTrack）",
+        "desc": "出发前总忘带东西？用装备足迹管理你的户外装备库，清单模板一键打包，行程装备不再遗漏。",
         "url": "https://github.com/jiukunz"
       }
     ],
     "social": {
       "github": { "label": "GitHub", "url": "https://github.com/jiukunz" },
-      "email": { "label": "Email", "url": "mailto:hello@jiukun.me" }
+      "email": { "label": "Email", "url": "mailto:jiukunz@gmail.com" }
     }
   },
   "en": {
@@ -35,24 +25,14 @@
     "projectsLabel": "Selected Works",
     "projects": [
       {
-        "name": "Project A",
-        "desc": "A brief description of this project",
-        "url": "https://github.com/jiukunz"
-      },
-      {
-        "name": "Project B",
-        "desc": "A brief description of this project",
-        "url": "https://github.com/jiukunz"
-      },
-      {
-        "name": "Project C",
-        "desc": "A brief description of this project",
+        "name": "GearTrack",
+        "desc": "Always forgetting something before you set off? Use GearTrack to manage your outdoor gear library—checklist templates pack with one click, so you never miss any gear for your trip.",
         "url": "https://github.com/jiukunz"
       }
     ],
     "social": {
       "github": { "label": "GitHub", "url": "https://github.com/jiukunz" },
-      "email": { "label": "Email", "url": "mailto:hello@jiukun.me" }
+      "email": { "label": "Email", "url": "mailto:jiukunz@gmail.com" }
     }
   }
 }

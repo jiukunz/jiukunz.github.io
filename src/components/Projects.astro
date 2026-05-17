@@ -1,0 +1,82 @@
+---
+import content from '../data/content.json';
+---
+
+<section class="projects">
+  <h2 class="section-label">
+    <span class="lang-zh">{content.zh.projectsLabel}</span>
+    <span class="lang-en">{content.en.projectsLabel}</span>
+  </h2>
+  <ul class="project-list">
+    {content.zh.projects.map((project, i) => (
+      <li>
+        <a href={project.url} target="_blank" rel="noopener noreferrer" class="project-item">
+          <span class="project-info">
+            <span class="lang-zh">
+              <span class="project-name">{project.name}</span>
+              <span class="project-desc"> — {project.desc}</span>
+            </span>
+            <span class="lang-en">
+              <span class="project-name">{content.en.projects[i].name}</span>
+              <span class="project-desc"> — {content.en.projects[i].desc}</span>
+            </span>
+          </span>
+          <span class="project-arrow">&rarr;</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .projects {
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .project-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .project-item:hover {
+    color: var(--color-accent);
+  }
+
+  .project-info {
+    flex: 1;
+  }
+
+  .project-name {
+    font-weight: 500;
+  }
+
+  .project-desc {
+    color: var(--color-text-secondary);
+  }
+
+  .project-arrow {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin-left: 1rem;
+  }
+</style>

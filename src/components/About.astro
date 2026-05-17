@@ -1,0 +1,36 @@
+---
+import content from '../data/content.json';
+---
+
+<section class="about">
+  <h2 class="section-label">
+    <span class="lang-zh">{content.zh.aboutLabel}</span>
+    <span class="lang-en">{content.en.aboutLabel}</span>
+  </h2>
+  <p class="about-text">
+    <span class="lang-zh">{content.zh.about}</span>
+    <span class="lang-en">{content.en.about}</span>
+  </p>
+</section>
+
+<style>
+  .about {
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    max-width: 480px;
+  }
+</style>

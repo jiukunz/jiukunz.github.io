@@ -1,5 +1,6 @@
 ---
 import content from '../data/content.json';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <aside class="sidebar">
@@ -25,6 +26,10 @@ import content from '../data/content.json';
         <span class="lang-zh">{content.zh.social.email.label}</span>
         <span class="lang-en">{content.en.social.email.label}</span>
       </a>
+    </div>
+
+    <div class="toggles">
+      <ThemeToggle />
     </div>
   </div>
 </aside>
@@ -90,6 +95,13 @@ import content from '../data/content.json';
     border-color: var(--sidebar-text-secondary);
   }
 
+  .toggles {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
   @media (max-width: 768px) {
     .sidebar {
       padding: 2rem 1.5rem;
@@ -115,6 +127,11 @@ import content from '../data/content.json';
 
     .social-links {
       justify-content: flex-start;
+    }
+
+    .toggles {
+      justify-content: flex-start;
+      margin-top: 0;
     }
   }
 </style>

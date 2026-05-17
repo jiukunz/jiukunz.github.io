@@ -1,0 +1,44 @@
+---
+---
+
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+  <span class="lang-zh">
+    <span class="theme-light">☀</span>
+    <span class="theme-dark">☾</span>
+  </span>
+  <span class="lang-en">
+    <span class="theme-light">☀</span>
+    <span class="theme-dark">☾</span>
+  </span>
+</button>
+
+<style>
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 4px;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    color: var(--sidebar-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  .theme-toggle:hover {
+    color: var(--sidebar-text);
+    border-color: var(--sidebar-text-secondary);
+  }
+
+  [data-theme="light"] .theme-dark { display: none !important; }
+  [data-theme="dark"] .theme-light { display: none !important; }
+</style>
+
+<script>
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>

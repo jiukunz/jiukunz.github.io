@@ -1,0 +1,58 @@
+{
+  "zh": {
+    "name": "jiukun",
+    "role": "独立设计师 / 开发者",
+    "about": "专注于设计与开发的交叉领域，热衷于用简洁的技术方案解决实际问题。相信好的产品来自对细节的持续关注。",
+    "aboutLabel": "关于",
+    "projectsLabel": "精选项目",
+    "projects": [
+      {
+        "name": "项目名称 A",
+        "desc": "一句话描述这个项目做了什么",
+        "url": "https://github.com/jiukunz"
+      },
+      {
+        "name": "项目名称 B",
+        "desc": "一句话描述这个项目做了什么",
+        "url": "https://github.com/jiukunz"
+      },
+      {
+        "name": "项目名称 C",
+        "desc": "一句话描述这个项目做了什么",
+        "url": "https://github.com/jiukunz"
+      }
+    ],
+    "social": {
+      "github": { "label": "GitHub", "url": "https://github.com/jiukunz" },
+      "email": { "label": "Email", "url": "mailto:hello@jiukun.me" }
+    }
+  },
+  "en": {
+    "name": "jiukun",
+    "role": "Independent Designer & Developer",
+    "about": "Focused on the intersection of design and development. Passionate about solving real problems with simple, elegant solutions.",
+    "aboutLabel": "About",
+    "projectsLabel": "Selected Works",
+    "projects": [
+      {
+        "name": "Project A",
+        "desc": "A brief description of this project",
+        "url": "https://github.com/jiukunz"
+      },
+      {
+        "name": "Project B",
+        "desc": "A brief description of this project",
+        "url": "https://github.com/jiukunz"
+      },
+      {
+        "name": "Project C",
+        "desc": "A brief description of this project",
+        "url": "https://github.com/jiukunz"
+      }
+    ],
+    "social": {
+      "github": { "label": "GitHub", "url": "https://github.com/jiukunz" },
+      "email": { "label": "Email", "url": "mailto:hello@jiukun.me" }
+    }
+  }
+}

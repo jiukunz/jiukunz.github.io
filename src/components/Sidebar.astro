@@ -1,0 +1,120 @@
+---
+import content from '../data/content.json';
+---
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <div class="avatar">J</div>
+
+    <h1 class="name">
+      <span class="lang-zh">{content.zh.name}</span>
+      <span class="lang-en">{content.en.name}</span>
+    </h1>
+
+    <p class="role">
+      <span class="lang-zh">{content.zh.role}</span>
+      <span class="lang-en">{content.en.role}</span>
+    </p>
+
+    <div class="social-links">
+      <a href={content.zh.social.github.url} target="_blank" rel="noopener noreferrer" class="social-link">
+        <span class="lang-zh">{content.zh.social.github.label}</span>
+        <span class="lang-en">{content.en.social.github.label}</span>
+      </a>
+      <a href={content.zh.social.email.url} class="social-link">
+        <span class="lang-zh">{content.zh.social.email.label}</span>
+        <span class="lang-en">{content.en.social.email.label}</span>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .sidebar {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-inner {
+    text-align: center;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--sidebar-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--sidebar-text);
+  }
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .role {
+    font-size: 0.875rem;
+    color: var(--sidebar-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .social-link {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--sidebar-text-secondary);
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .social-link:hover {
+    color: var(--sidebar-text);
+    border-color: var(--sidebar-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      padding: 2rem 1.5rem;
+    }
+
+    .sidebar-inner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .avatar {
+      margin: 0;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+    }
+
+    .role {
+      margin-bottom: 0;
+    }
+
+    .social-links {
+      justify-content: flex-start;
+    }
+  }
+</style>

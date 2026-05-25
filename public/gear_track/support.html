@@ -51,6 +51,16 @@
             border-radius: 10px;
             margin-right: 6px;
         }
+        .new-tag {
+            display: inline-block;
+            background: #FFF3E0;
+            color: #E65100;
+            font-size: 0.75em;
+            padding: 1px 7px;
+            border-radius: 8px;
+            margin-left: 4px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -60,17 +70,47 @@
 <p class="subtitle">GearTrack — 技术支持</p>
 
 <div class="card">
-    <h2>常见问题</h2>
+    <h2>AI 智能功能 <span class="new-tag">v1.2</span></h2>
+    <p><strong>AI 保养顾问是什么？</strong></p>
+    <p>AI 会根据您装备的类型、品牌、材质和当前状态，生成个性化的保养建议和推荐保养周期。进入装备详情页即可使用。</p>
+    <p><strong>AI 智能打包如何工作？</strong></p>
+    <p>在行程详情页中，AI 会根据行程的活动类型、时长和目的地，从您的装备库中智能推荐携带物品，直接生成打包清单。</p>
+    <p><strong>AI 户外语录是什么？</strong></p>
+    <p>为每次行程生成专属的户外主题金句，可用于搭配分享卡片，让分享更有温度。</p>
+    <p><strong>AI 调用有次数限制吗？</strong></p>
+    <p>每台设备享有 20 次免费 AI 调用额度（三种 AI 功能共享）。调用次数基于设备标识，不会收集您的个人信息。</p>
+    <p><strong>AI 功能需要联网吗？</strong></p>
+    <p>是的，AI 功能需要网络连接。但照片编辑（去背景）完全在设备本地处理，无需网络。</p>
+</div>
+
+<div class="card">
+    <h2>分享卡片 <span class="new-tag">v1.2</span></h2>
+    <p><strong>如何生成分享卡片？</strong></p>
+    <p>在「我的」页面点击分享入口，或在行程/装备详情页使用分享功能。选择行程或装备，选择模板风格，搭配 AI 生成的户外金句，即可生成精美分享图片。</p>
+    <p><strong>分享卡片保存在哪里？</strong></p>
+    <p>可以一键保存到相册，或通过系统分享功能发送到微信、朋友圈等平台。</p>
+</div>
+
+<div class="card">
+    <h2>照片编辑 <span class="new-tag">v1.2</span></h2>
+    <p><strong>装备照片的「去背景」是什么？</strong></p>
+    <p>拍照或选择照片后，应用会使用 iOS Vision 框架自动识别并提取照片中的装备主体，去除背景杂乱，生成透明背景的展示图。整个过程在设备本地完成，照片不会上传。</p>
+    <p><strong>照片编辑支持哪些操作？</strong></p>
+    <p>支持旋转（顺时针/逆时针）和还原操作，完成后自动提取主体。</p>
+</div>
+
+<div class="card">
+    <h2>基础功能</h2>
     <p><strong>如何添加装备？</strong></p>
     <p>进入「装备」标签页，点击右上角「+」按钮，填写装备信息并保存。支持拍照或从相册选取照片。</p>
-    <p><strong>如何创建清单模板？</strong></p>
-    <p>进入「清单」标签页，切换到「模板」，点击「+」新建模板。创建后可在模板详情中从装备库添加物品，或手动添加临时物品。</p>
+    <p><strong>如何管理打包清单？</strong></p>
+    <p>打包清单已内嵌在行程详情页中。进入行程详情，即可查看和管理该行程的清单。支持 AI 一键生成、手动添加、以及从其他行程导入。</p>
     <p><strong>如何规划行程？</strong></p>
-    <p>进入「行程」标签页，点击「+」新建行程，填写目的地、日期和活动类型，然后关联装备清单即可。</p>
+    <p>进入「行程」标签页，点击「+」新建行程，填写目的地、日期和活动类型。行程详情页内可直接管理打包清单。</p>
     <p><strong>装备状态「需保养」是什么意思？</strong></p>
-    <p>当装备设置了保养周期（天数），且距离上次使用已超过该周期时，系统会自动标记为「需保养」。</p>
+    <p>当装备设置了保养周期（天数），且距离上次保养已超过该周期时，系统会自动标记为「需保养」。也可以使用 AI 保养顾问获取个性化保养建议。</p>
     <p><strong>数据会丢失吗？</strong></p>
-    <p>所有数据均保存在您的设备本地，不会上传到任何服务器。建议定期通过 iCloud 备份您的设备数据。</p>
+    <p>所有数据均保存在您的设备本地。建议定期通过 iCloud 备份您的设备数据。</p>
 </div>
 
 <div class="card">
@@ -85,7 +125,7 @@
 <div class="card">
     <h2>应用信息</h2>
     <p>
-        <span class="tag">版本 1.0</span>
+        <span class="tag">版本 1.2</span>
         <span class="tag">iOS 18.6+</span>
         <span class="tag">iPhone</span>
     </p>

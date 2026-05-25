@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>装备足迹 — 户外装备管理 App</title>
+    <title>装备足迹 — AI 驱动的户外装备管理 App</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -43,6 +43,15 @@
         }
         .hero .download-btn:hover { transform: scale(1.04); }
 
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 14px;
+            border-radius: 14px;
+            font-size: 0.85em;
+            margin-bottom: 16px;
+        }
+
         .section {
             max-width: 720px;
             margin: 0 auto;
@@ -76,11 +85,21 @@
         }
         .feature h3 { font-size: 1.05em; margin-bottom: 6px; }
         .feature p { font-size: 0.9em; color: #6e6e73; }
+        .feature .new-tag {
+            display: inline-block;
+            background: #E8F5E9;
+            color: #2E7D32;
+            font-size: 0.75em;
+            padding: 2px 8px;
+            border-radius: 8px;
+            margin-left: 6px;
+            vertical-align: middle;
+            font-weight: 600;
+        }
 
         .how {
             max-width: 600px;
             margin: 0 auto;
-            counter-reset: step;
         }
         .step {
             display: flex;
@@ -129,34 +148,55 @@
 <body>
 
 <div class="hero">
+    <div class="badge">v1.2 全新升级</div>
     <div class="hero-icon">🎒</div>
     <h1>装备足迹</h1>
-    <p class="tagline">户外装备管理，出发不再遗漏</p>
-    <a class="download-btn" href="#download">即将上线 App Store</a>
+    <p class="tagline">AI 驱动的户外装备管理，出发不再遗漏</p>
+    <a class="download-btn" href="#download">App Store 下载</a>
 </div>
 
 <div class="section">
-    <h2>为户外爱好者而生</h2>
+    <h2>AI 让装备管理更智能</h2>
     <div class="features">
         <div class="feature">
-            <div class="icon" style="background:#E3F2FD;">📋</div>
+            <div class="icon" style="background:#E3F2FD;">🤖</div>
+            <h3>AI 保养顾问<span class="new-tag">NEW</span></h3>
+            <p>AI 根据装备类型、材质和状态，生成个性化保养方案和推荐保养周期，装备始终处于最佳状态。</p>
+        </div>
+        <div class="feature">
+            <div class="icon" style="background:#E8F5E9;">🧳</div>
+            <h3>AI 智能打包<span class="new-tag">NEW</span></h3>
+            <p>根据行程活动类型、时长和目的地，智能推荐携带装备，一键生成打包清单，告别手动整理。</p>
+        </div>
+        <div class="feature">
+            <div class="icon" style="background:#FFF3E0;">📸</div>
+            <h3>照片去背景<span class="new-tag">NEW</span></h3>
+            <p>拍照自动提取装备主体，去除背景杂乱，生成干净的装备展示图。完全离线处理，隐私安全。</p>
+        </div>
+        <div class="feature">
+            <div class="icon" style="background:#FCE4EC;">🏔️</div>
+            <h3>分享卡片<span class="new-tag">NEW</span></h3>
+            <p>选择行程或装备，搭配 AI 生成的户外金句，一键生成精美分享图片，晒出你的户外足迹。</p>
+        </div>
+        <div class="feature">
+            <div class="icon" style="background:#F3E5F5;">📋</div>
             <h3>装备库管理</h3>
-            <p>为每件装备建档：品牌、价格、照片、存放位置、保养周期，所有信息一目了然。</p>
+            <p>为每件装备建档：品牌、型号、价格、存放位置、保养周期，所有信息一目了然。</p>
         </div>
         <div class="feature">
-            <div class="icon" style="background:#E8F5E9;">✅</div>
-            <h3>智能清单模板</h3>
-            <p>为徒步、露营、登山等不同活动创建专属模板，从装备库直接选配，逐项勾选打包。</p>
+            <div class="icon" style="background:#E0F7FA;">🗺️</div>
+            <h3>行程 + 清单</h3>
+            <p>行程详情就是出发准备中心，AI 直接生成清单，支持从历史行程导入，逐项勾选打包。</p>
         </div>
         <div class="feature">
-            <div class="icon" style="background:#FFF3E0;">🏔️</div>
-            <h3>行程管理</h3>
-            <p>规划每次出行，关联装备清单。行程结束后评价装备表现，下次出行更有参考。</p>
+            <div class="icon" style="background:#E8EAF6;">📊</div>
+            <h3>户外档案</h3>
+            <p>装备数、行程数、出行天数一目了然，待办提醒不遗漏，最活跃装备排行。</p>
         </div>
         <div class="feature">
-            <div class="icon" style="background:#F3E5F5;">📊</div>
-            <h3>数据统计</h3>
-            <p>装备投入总览、出行排行、活动类型分布，用数据帮你做出更明智的装备决策。</p>
+            <div class="icon" style="background:#FFF8E1;">💬</div>
+            <h3>AI 户外语录<span class="new-tag">NEW</span></h3>
+            <p>为每次行程生成专属户外主题金句，搭配分享卡片使用，让你的分享更有温度。</p>
         </div>
     </div>
 </div>
@@ -168,21 +208,21 @@
             <div class="step-num">1</div>
             <div>
                 <h3>录入装备</h3>
-                <p>拍照添加你的户外装备，填入品牌、价格和存放位置</p>
+                <p>拍照添加装备，AI 自动去背景。填入品牌、价格和存放位置，建立完整档案。</p>
             </div>
         </div>
         <div class="step">
             <div class="step-num">2</div>
             <div>
-                <h3>创建清单</h3>
-                <p>按活动类型建立清单模板，从装备库选配物品</p>
+                <h3>AI 规划行程</h3>
+                <p>创建行程，AI 根据活动类型智能推荐携带装备，一键生成打包清单。</p>
             </div>
         </div>
         <div class="step">
             <div class="step-num">3</div>
             <div>
-                <h3>出发打包</h3>
-                <p>新建行程、绑定清单，逐项勾选确认，安心出发</p>
+                <h3>安心出发</h3>
+                <p>逐项勾选打包，AI 保养提醒不遗漏。行程结束生成分享卡片，记录每次精彩。</p>
             </div>
         </div>
     </div>
